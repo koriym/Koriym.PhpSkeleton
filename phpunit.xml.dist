@@ -4,7 +4,8 @@
          backupGlobals="false"
          backupStaticAttributes="false"
          strict="true"
-         verbose="true">
+         verbose="true"
+		 colors="true">
   <testsuites>
     <testsuite name="PHP.Bone">
       <directory suffix="Test.php">tests</directory>
