@@ -1,11 +1,15 @@
 PHPのライブラリを作るときのボーンプロジェクトです。
+標準的なディレクトリ構成に加えてant/Jenkins用のbuild.xmlとPHPUnit用のphunit.xml.distのファイルが用意されているので
+それぞれ引数なしでコマンド入力ができます。
 
-例)
+例)　空のプロジェクトをcloneしてphpunit, ant
     $ git clone https://github.com/koriym/PHP.Bone
     $ phpunit
     $ ant
-    
-PHP.Boneがコメント中に現れるパッケージ名、PHP\Boneが名前空間です。この２語を自分のパッケージに全置換して使います。
+
+ソースコードの中の"PHP.Bone"がコメント中に現れるパッケージ名、"PHP\Bone"が名前空間です。
+
+この２語を自分のパッケージ名に全置換して使います。
 
 ant/phpunit用セットアップ
 
