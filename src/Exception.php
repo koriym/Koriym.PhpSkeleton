@@ -1,6 +1,6 @@
 <?php
 /**
- * This file is part of the PHP.Bone Project for PHP.
+ * PHP.Bone
  * 
  * @license http://opensource.org/licenses/bsd-license.php BSD
  * 
