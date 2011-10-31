@@ -1,18 +1,18 @@
 <?php
 /**
- * PHP.Bone
+ * PHP.Skelton
  * 
  * @license http://opensource.org/licenses/bsd-license.php BSD
  * 
  */
-namespace PHP\Bone;
+namespace PHP\Skelton;
 
 /**
- * Bone
+ * Skelton
  * 
- * @package PHP.Bone
+ * @package PHP.Skelton
  * @author  
  */
-class Bone 
+class Skelton 
 {
 }

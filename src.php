@@ -1,6 +1,6 @@
 <?php
 
-namespace PHP\Bone;
+namespace PHP\Skelton;
 
-require_once __DIR__ . '/src/Bone.php';
+require_once __DIR__ . '/src/Skelton.php';
 require_once __DIR__ . '/src/Exception.php';

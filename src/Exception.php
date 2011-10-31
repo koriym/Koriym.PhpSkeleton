@@ -1,16 +1,16 @@
 <?php
 /**
- * PHP.Bone
+ * PHP.Skelton
  * 
  * @license http://opensource.org/licenses/bsd-license.php BSD
  * 
  */
-namespace PHP\Bone;
+namespace PHP\Skelton;
 
 /**
  * Generic package exception.
  * 
- * @package PHP\Bone;
+ * @package PHP\Skelton;
  * 
  */
 class Exception extends \Exception {}
