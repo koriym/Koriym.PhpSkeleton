@@ -1,6 +1,6 @@
-PHPのライブラリを作るときのボーンプロジェクトです。
-標準的なディレクトリ構成に加えてant/Jenkins用のbuild.xmlとPHPUnit用のphunit.xml.distのファイルが用意されているので
-それぞれ引数なしでコマンド入力ができます。
+PHPのライブラリを作るときのスケルトンプロジェクトです。
+
+標準的なディレクトリ構成に加えてant/Jenkins用のbuild.xmlとPHPUnit用のphunit.xml.distのファイルが用意されていて、それぞれ引数なしでコマンド入力ができます。
 
 例)　空のプロジェクトをcloneしてphpunit, ant
     $ git clone https://github.com/koriym/PHP.Skelton
