@@ -1,6 +1,6 @@
 PHP.ProjectSkelton
 =======
-PHP project template
+CI ready PHP project skelton
 ---------------------------------------------
 This project was created in order to provide project skelton to start new PHP projet.
 
