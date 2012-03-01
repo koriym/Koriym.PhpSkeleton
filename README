@@ -1,17 +1,17 @@
-PHPのライブラリを作るときのスケルトンプロジェクトです。
+PHP.ProjectSkelton
+=======
+PHP project template
+---------------------------------------------
+This project was created in order to provide project skelton to start new PHP projet.
 
-標準的なディレクトリ構成に加えてant/Jenkins用のbuild.xmlとPHPUnit用のphunit.xml.distのファイルが用意されていて、それぞれ引数なしでコマンド入力ができます。
+Requiment
+---------
+ * PHP 5.2+
 
-例)　空のプロジェクトをcloneしてphpunit, ant
-    $ git clone https://github.com/koriym/PHP.Skelton
-    $ phpunit
-    $ ant
+Setup
+==============
 
-ソースコードの中の"PHP.Skelton"がコメント中に現れるパッケージ名、"PHP\Skelton"が名前空間です。
-
-この２語を自分のパッケージ名に全置換して使います。
-
-ant/phpunit用セットアップ
+Here's how to install to be CI ready.
 
     $ sudo pear channel-discover pear.pdepend.org
     $ sudo pear channel-discover pear.phpmd.org
@@ -25,6 +25,23 @@ ant/phpunit用セットアップ
     $ sudo pear install phpunit/phploc
     $ sudo pear install PHPDocumentor
     $ sudo pear install PHP_CodeSniffer
-    $ sudo pear install --alldeps phpunit/PHP_CodeBrowser
-    $ sudo pear install --alldeps phpunit/PHPUnit
+    $ sudo pear install -a phpunit/PHP_CodeBrowser
+    $ sudo pear install -a phpunit/PHPUnit
 
+Testing PHP.ProjectSkelton
+==============
+
+Here's how to install PHP.SkeltonProject from source to run the unit tests and ant.
+
+    $ git clone https://github.com/koriym/PHP.SkeltonProject
+    $ phpunit
+    $ ant
+
+Getting started
+===============
+
+ * Download PHP.SkeltonProject, unzip.
+ * Rename _PHP.SkeltonProject_ to _your project folder name_
+ * Rename _PHP.Skelton_ to _your project name_ in files.
+ * Rename _PHP\Skelton_ to _your namespace_ in files.
+ * Modify this README.
