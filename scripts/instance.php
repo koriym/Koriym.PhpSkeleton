@@ -1,6 +1,6 @@
 <?php
 
-namespace PHP\Skelton;
+namespace PHP\Skeleton;
 
 require_once dirname(__DIR__) . '/src.php';
-return new Skelton;
+return new Skeleton;
