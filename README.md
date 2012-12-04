@@ -1,4 +1,4 @@
-PHP.ProjectSkelieton
+PHP.ProjectSkeleton
 =======
 A standard PHP project skeleton
 ---------------------------------------------
