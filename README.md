@@ -34,6 +34,8 @@ Testing PHP.ProjectSkelton
 Here's how to install PHP.SkeltonProject from source to run the unit tests and ant.
 
     $ git clone https://github.com/koriym/PHP.SkeltonProject
+    $ cd PHP.SkeltonProject
+    $ git submodule update --init
     $ phpunit
     $ ant
 
