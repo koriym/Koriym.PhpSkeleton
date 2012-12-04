@@ -1,8 +1,8 @@
-PHP.ProjectSkelton
+PHP.ProjectSkelieton
 =======
-CI ready PHP project skelton
+A standard PHP project skeleton
 ---------------------------------------------
-This project was created in order to provide project skelton to start new PHP projet.
+This project was created in order to provide project skeleton to start new PHP projet.
 
 Requiment
 ---------
@@ -28,20 +28,22 @@ Here's how to install to be CI ready.
     $ sudo pear install -a phpunit/PHP_CodeBrowser
     $ sudo pear install -a phpunit/PHPUnit
 
-Testing PHP.ProjectSkelton
+Testing PHP.ProjectSkeleton
 ==============
 
-Here's how to install PHP.SkeltonProject from source to run the unit tests and ant.
+Here's how to install PHP.SkelietonProject from source to run the unit tests and ant.
 
-    $ git clone https://github.com/koriym/PHP.SkeltonProject
+    $ git clone https://github.com/koriym/PHP.SkeletonProject
+    $ cd PHP.SkelietonProject
+    $ git submodule update --init
     $ phpunit
     $ ant
 
 Getting started
 ===============
 
- * Download PHP.SkeltonProject, unzip.
- * Rename _PHP.SkeltonProject_ to _your project folder name_
- * Rename _PHP.Skelton_ to _your project name_ in files.
- * Rename _PHP\Skelton_ to _your namespace_ in files.
+ * Download PHP.SkeletonProject, unzip.
+ * Rename _PHP.SkeletonProject_ to _your project folder name_
+ * Rename _PHP.Skeleton_ to _your project name_ in files.
+ * Rename _PHP\Skeleton_ to _your namespace_ in files.
  * Modify this README.
