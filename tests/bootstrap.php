@@ -3,4 +3,4 @@
 
 require_once dirname(__DIR__) . '/src.php';
 
-require_once __DIR__ . '/SkeltonMock.php';
+require_once __DIR__ . '/SkeletonMock.php';
