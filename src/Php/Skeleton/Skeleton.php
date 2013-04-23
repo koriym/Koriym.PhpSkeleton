@@ -1,17 +1,15 @@
 <?php
 /**
- * PHP.Skeleton
+ * This file is part of the Php\Skeleton
  * 
  * @license http://opensource.org/licenses/bsd-license.php BSD
- * 
  */
-namespace PHP\Skeleton;
+namespace Php\Skeleton;
 
 /**
- * Skeleton
- * 
- * @package PHP.Skeleton
- * @author  
+ *
+ *
+ * @package Php\Skeleton
  */
 class Skeleton
 {
