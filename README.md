@@ -11,4 +11,9 @@ Requirements
 Getting started
 ===============
 
- * php composer.phar create-project php/skeleton {Vendor.Package}
+```
+ $ composer create-project php/skeleton Vendor.Package
+ $ cd Vendor.Package
+ $ composer dump-autoload
+ $ phpunit
+```
