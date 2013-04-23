@@ -23,9 +23,9 @@ class Installer
                 return;
             }
             $contents = file_get_contents($file);
-            $contents = str_replace('Php\Skeleton\Skeleton', "{$vendorName}\\{$packageName}\\{$packageName}", $contents);
-            $contents = str_replace('Php\Skeleton', "{$vendorName}\\{$packageName}", $contents);
             $contents = str_replace('Skeleton', $packageName, $contents);
+            $contents = str_replace('Php', $vendorName, $contents);
+            $contents = str_replace('{package_name}', strtolower("{$vendorName}/{$packageName}"), $contents);
             file_put_contents($file, $contents);
         };
 
@@ -44,7 +44,12 @@ class Installer
         rename("{$skeletonRoot}/tests/Php", "{$skeletonRoot}/tests/{$vendorName}");
         rename("{$skeletonRoot}/tests/{$vendorName}/{$packageName}/SkeletonTest.php", "{$skeletonRoot}/tests/{$vendorName}/{$packageName}/{$packageName}Test.php");
 
-        unlink("{$skeletonRoot}/scripts/Installer.php");
+        // composer.json
+        unlink("{$skeletonRoot}/composer.json");
+        rename("{$skeletonRoot}/src/composer.json", "{$skeletonRoot}/composer.json");
+
+        // delete self
+        unlink(__FILE__);
     }
 
     /**
