@@ -12,7 +12,8 @@ class Installer
     public static function postInstall(Event $event = null)
     {
         $skeletonRoot = dirname(__DIR__);
-        $folderName = (new \SplFileInfo($skeletonRoot))->getFilename();
+        $splFile = new \SplFileInfo($skeletonRoot);
+        $folderName = $splFile->getFilename();
         list($vendorName, $packageName) = explode('.', $folderName);
         $jobChmod = function (\SplFileInfo $file) {
             chmod($file, 0777);
