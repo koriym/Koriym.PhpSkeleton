@@ -3,6 +3,9 @@
     "description":" ",
     "keywords":[
     ],
+    "config":{
+        "bin-dir": "bin"
+    },
     "autoload":{
         "psr-0":{
             "Php\\Skeleton": "src/"
