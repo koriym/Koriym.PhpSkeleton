@@ -36,6 +36,11 @@ class Installer
         // rename file contents
         self::recursiveJob("{$skeletonRoot}/src", $jobRename);
         self::recursiveJob("{$skeletonRoot}/tests", $jobRename);
+        $jobRename(new \SplFileInfo("{$skeletonRoot}/build.xml"));
+        $jobRename(new \SplFileInfo("{$skeletonRoot}/phpcs.xml"));
+        $jobRename(new \SplFileInfo("{$skeletonRoot}/phpdox.xml.dist"));
+        $jobRename(new \SplFileInfo("{$skeletonRoot}/phpmd.xml"));
+        $jobRename(new \SplFileInfo("{$skeletonRoot}/phpunit.xml.dist"));
 
         rename("{$skeletonRoot}/src/Php/Skeleton", "{$skeletonRoot}/src/Php/{$packageName}");
         rename("{$skeletonRoot}/src/Php", "{$skeletonRoot}/src/{$vendorName}");
