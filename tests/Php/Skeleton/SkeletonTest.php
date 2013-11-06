@@ -23,7 +23,7 @@ class SkeletonTest extends \PHPUnit_Framework_TestCase
     /**
      * @expectedException \Php\Skeleton\Exception\LogicException
      */
-    public function test_Exception()
+    public function testException()
     {
         throw new Exception\LogicException;
     }

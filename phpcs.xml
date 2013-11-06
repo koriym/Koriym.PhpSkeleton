@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
-<ruleset name="BEAR">
-    <description>The BEAR coding standard.</description>
+<ruleset name="PHP.Skeleton">
+    <description>PHP.Skeleton coding standard.</description>
     <!-- 2. General -->
     <rule ref="Generic.NamingConventions.UpperCaseConstantName">
         <exclude name="Generic.NamingConventions.UpperCaseConstantName.ConstantNotUpperCase"/>

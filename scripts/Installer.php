@@ -24,6 +24,7 @@ class Installer
                 return;
             }
             $contents = file_get_contents($file);
+            $contents = str_replace('PHP.Skeleton', $vendorName.'.'.$packageName, $contents);
             $contents = str_replace('Skeleton', $packageName, $contents);
             $contents = str_replace('Php', $vendorName, $contents);
             $contents = str_replace('{package_name}', strtolower("{$vendorName}/{$packageName}"), $contents);
@@ -36,6 +37,11 @@ class Installer
         // rename file contents
         self::recursiveJob("{$skeletonRoot}/src", $jobRename);
         self::recursiveJob("{$skeletonRoot}/tests", $jobRename);
+        $jobRename(new \SplFileInfo("{$skeletonRoot}/build.xml"));
+        $jobRename(new \SplFileInfo("{$skeletonRoot}/phpcs.xml"));
+        $jobRename(new \SplFileInfo("{$skeletonRoot}/phpdox.xml.dist"));
+        $jobRename(new \SplFileInfo("{$skeletonRoot}/phpmd.xml"));
+        $jobRename(new \SplFileInfo("{$skeletonRoot}/phpunit.xml.dist"));
 
         rename("{$skeletonRoot}/src/Php/Skeleton", "{$skeletonRoot}/src/Php/{$packageName}");
         rename("{$skeletonRoot}/src/Php", "{$skeletonRoot}/src/{$vendorName}");
