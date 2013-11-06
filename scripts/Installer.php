@@ -24,6 +24,7 @@ class Installer
                 return;
             }
             $contents = file_get_contents($file);
+            $contents = str_replace('PHP.Skeleton', $vendorName.'.'.$packageName, $contents);
             $contents = str_replace('Skeleton', $packageName, $contents);
             $contents = str_replace('Php', $vendorName, $contents);
             $contents = str_replace('{package_name}', strtolower("{$vendorName}/{$packageName}"), $contents);
