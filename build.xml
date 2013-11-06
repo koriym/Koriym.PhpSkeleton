@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<project name="PHP.Skeleton" default="build">
+<project name="Php.Skeleton" default="build">
     <property name="composer.path" value="${basedir}/composer.phar" />
     <available property="composer.exists" file="${composer.path}" />
 
