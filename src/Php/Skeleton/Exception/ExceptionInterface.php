@@ -6,11 +6,6 @@
  */
 namespace Php\Skeleton\Exception;
 
-/**
- * Generic package exception
- *
- * @package Php.Skeleton
- */
 interface ExceptionInterface
 {
 }

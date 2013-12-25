@@ -6,11 +6,6 @@
  */
 namespace Php\Skeleton;
 
-/**
- * Php.Skeleton
- *
- * @package Php.Skeleton
- */
 class Skeleton
 {
 }
