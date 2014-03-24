@@ -6,6 +6,7 @@
     "config":{
         "bin-dir": "bin"
     },
+    "license": "proprietary",
     "autoload":{
         "psr-4":{
             "PHP\\Skeleton\\": "src/"
