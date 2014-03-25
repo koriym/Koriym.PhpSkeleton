@@ -1,0 +1,15 @@
+{
+    "name": "{package_name}",
+    "description":" ",
+    "keywords":[
+    ],
+    "config":{
+        "bin-dir": "bin"
+    },
+    "license": "BSD-3-Clause",
+    "autoload":{
+        "psr-4":{
+            "Php\\Skeleton\\": "src/"
+        }
+    }
+}
