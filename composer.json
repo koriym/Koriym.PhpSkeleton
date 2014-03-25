@@ -1,15 +1,24 @@
 {
     "name": "php/skeleton",
-    "description":" ",
+    "description":"Generic PHP.Skeleton package",
     "keywords":[
+        "Skeleton",
+        "PSR"
     ],
-    "config":{
-        "bin-dir": "bin"
+    "homepage":"https://github.com/koriym/PHP.Skeleton",
+    "license":"BSD-3-Clause",
+    "authors": [
+        {
+            "name": "Akihito Koriyama",
+            "email": "akihito.koriyama@gmail.com"
+        }
+    ],
+    "scripts"   :{
+        "post-install-cmd": "Installer::postInstall"
     },
-    "license": "proprietary",
     "autoload":{
-        "psr-4":{
-            "PHP\\Skeleton\\": "src/"
+        "psr-0":{
+            "": "scripts/"
         }
     }
 }

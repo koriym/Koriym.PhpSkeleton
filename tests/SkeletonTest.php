@@ -1,6 +1,6 @@
 <?php
 
-namespace PHP\Skeleton;
+namespace Php\Skeleton;
 
 class SkeletonTest extends \PHPUnit_Framework_TestCase
 {
@@ -17,11 +17,11 @@ class SkeletonTest extends \PHPUnit_Framework_TestCase
     public function testNew()
     {
         $actual = $this->skeleton;
-        $this->assertInstanceOf('\PHP\Skeleton\Skeleton', $actual);
+        $this->assertInstanceOf('\Php\Skeleton\Skeleton', $actual);
     }
 
     /**
-     * @expectedException \PHP\Skeleton\Exception\LogicException
+     * @expectedException \Php\Skeleton\Exception\LogicException
      */
     public function testException()
     {
