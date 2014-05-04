@@ -8,6 +8,7 @@ nbproject
 .settings
 */logs/*
 */cache/*
+build/
 
-vendor/*
+vendor/
 composer.phar
