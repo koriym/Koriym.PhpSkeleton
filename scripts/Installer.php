@@ -12,7 +12,8 @@ class Installer
     public static function postInstall(Event $event = null)
     {
         $skeletonRoot = dirname(__DIR__);
-        $folderName = (new \SplFileInfo($skeletonRoot))->getFilename();
+        $splFile = new \SplFileInfo($skeletonRoot);
+        $folderName = $splFile->getFilename();
         list($vendorName, $packageName) = explode('.', $folderName);
         $jobChmod = function (\SplFileInfo $file) {
             chmod($file, 0777);
@@ -23,26 +24,24 @@ class Installer
                 return;
             }
             $contents = file_get_contents($file);
+            $contents = str_ireplace('Php.Skeleton', $vendorName.'.'.$packageName, $contents);
             $contents = str_replace('Skeleton', $packageName, $contents);
             $contents = str_replace('Php', $vendorName, $contents);
             $contents = str_replace('{package_name}', strtolower("{$vendorName}/{$packageName}"), $contents);
             file_put_contents($file, $contents);
         };
 
-        // chmod
-        self::recursiveJob("{$skeletonRoot}/data/tmp", $jobChmod);
-
         // rename file contents
         self::recursiveJob("{$skeletonRoot}/src", $jobRename);
         self::recursiveJob("{$skeletonRoot}/tests", $jobRename);
+        $jobRename(new \SplFileInfo("{$skeletonRoot}/build.xml"));
+        $jobRename(new \SplFileInfo("{$skeletonRoot}/phpcs.xml"));
+        $jobRename(new \SplFileInfo("{$skeletonRoot}/phpdox.xml.dist"));
+        $jobRename(new \SplFileInfo("{$skeletonRoot}/phpmd.xml"));
+        $jobRename(new \SplFileInfo("{$skeletonRoot}/phpunit.xml.dist"));
 
-        rename("{$skeletonRoot}/src/Php/Skeleton", "{$skeletonRoot}/src/Php/{$packageName}");
-        rename("{$skeletonRoot}/src/Php", "{$skeletonRoot}/src/{$vendorName}");
-        rename("{$skeletonRoot}/src/{$vendorName}/{$packageName}/Skeleton.php", "{$skeletonRoot}/src/{$vendorName}/{$packageName}/{$packageName}.php");
-
-        rename("{$skeletonRoot}/tests/Php/Skeleton", "{$skeletonRoot}/tests/Php/{$packageName}");
-        rename("{$skeletonRoot}/tests/Php", "{$skeletonRoot}/tests/{$vendorName}");
-        rename("{$skeletonRoot}/tests/{$vendorName}/{$packageName}/SkeletonTest.php", "{$skeletonRoot}/tests/{$vendorName}/{$packageName}/{$packageName}Test.php");
+        rename("{$skeletonRoot}/src/Skeleton.php", "{$skeletonRoot}/src/{$packageName}.php");
+        rename("{$skeletonRoot}/tests/SkeletonTest.php", "{$skeletonRoot}/tests/{$packageName}Test.php");
 
         // composer.json
         unlink("{$skeletonRoot}/composer.json");

@@ -3,9 +3,13 @@
     "description":" ",
     "keywords":[
     ],
+    "config":{
+        "bin-dir": "bin"
+    },
+    "license": "BSD-3-Clause",
     "autoload":{
-        "psr-0":{
-            "Php\\Skeleton": "src/"
+        "psr-4":{
+            "Php\\Skeleton\\": "src/"
         }
     }
 }

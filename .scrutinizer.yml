@@ -1,0 +1,18 @@
+imports:
+    - php
+
+filter:
+    paths: [src/*]
+
+tools:
+    php_sim: false
+    php_cpd: false
+    php_mess_detector:
+        enabled: true
+        config:
+            ruleset: ./phpmd.xml
+    php_code_sniffer:
+        enabled: true
+        config:
+            ruleset: ./phpcs.xml
+    external_code_coverage: true

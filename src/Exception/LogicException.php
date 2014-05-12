@@ -6,11 +6,6 @@
  */
 namespace Php\Skeleton\Exception;
 
-/**
- * RuntimeException
- *
- * @package Php.Skeleton
- */
-class RuntimeException extends \LogicException implements ExceptionInterface
+class LogicException extends \LogicException implements ExceptionInterface
 {
 }

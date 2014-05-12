@@ -16,7 +16,6 @@
     "scripts"   :{
         "post-install-cmd": "Installer::postInstall"
     },
-
     "autoload":{
         "psr-0":{
             "": "scripts/"

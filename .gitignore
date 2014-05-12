@@ -6,6 +6,9 @@ nbproject
 .idea
 .project
 .settings
-composer.lock
+*/logs/*
+*/cache/*
+build/
 
-/vendor/
+vendor/
+composer.phar
