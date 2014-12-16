@@ -20,5 +20,10 @@
         "psr-0":{
             "": "scripts/"
         }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0.x-dev"
+        }
     }
 }
