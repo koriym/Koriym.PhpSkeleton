@@ -1,6 +1,5 @@
 <?xml version="1.0"?>
 <ruleset name="BEAR">
-    <description>The BEAR coding standard.</description>
     <!-- 2. General -->
     <rule ref="Generic.NamingConventions.UpperCaseConstantName"/>
     <rule ref="Generic.CodeAnalysis.UnusedFunctionParameter"/>
@@ -15,5 +14,6 @@
         <exclude name="PEAR.Commenting.FunctionComment.SpacingBeforeTags"/>
         <exclude name="PEAR.Commenting.FunctionComment.MissingParamTag"/>
         <exclude name="PEAR.Commenting.FunctionComment.Missing"/>
+        <exclude name="PEAR.Commenting.FunctionComment.ParameterCommentsNotAligned"/>
     </rule>
 </ruleset>
