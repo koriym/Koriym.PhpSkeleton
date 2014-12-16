@@ -13,6 +13,11 @@
             "email": "akihito.koriyama@gmail.com"
         }
     ],
+    "autoload":{
+        "psr-4":{
+            "Php\\Skeleton\\": "src/"
+        }
+    },
     "scripts"   :{
         "post-install-cmd": "Php\\Skeleton\\Installer::postInstall"
     },
