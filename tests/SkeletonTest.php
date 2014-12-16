@@ -11,6 +11,7 @@ class SkeletonTest extends \PHPUnit_Framework_TestCase
 
     protected function setUp()
     {
+        parent::setUp();
         $this->skeleton = new Skeleton;
     }
 
@@ -20,11 +21,9 @@ class SkeletonTest extends \PHPUnit_Framework_TestCase
         $this->assertInstanceOf('\Php\Skeleton\Skeleton', $actual);
     }
 
-    /**
-     * @expectedException \Php\Skeleton\Exception\LogicException
-     */
     public function testException()
     {
+        $this->setExpectedException('\Php\Skeleton\Exception\LogicException');
         throw new Exception\LogicException;
     }
 }
