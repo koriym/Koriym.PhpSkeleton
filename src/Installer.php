@@ -1,5 +1,7 @@
 <?php
 
+namespace Php\Skeleton;
+
 use Composer\Script\Event;
 
 class Installer

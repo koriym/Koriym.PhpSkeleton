@@ -14,12 +14,7 @@
         }
     ],
     "scripts"   :{
-        "post-install-cmd": "Installer::postInstall"
-    },
-    "autoload":{
-        "psr-0":{
-            "": "scripts/"
-        }
+        "post-install-cmd": "Php\\Skeleton\\Installer::postInstall"
     },
     "extra": {
         "branch-alias": {
