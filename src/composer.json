@@ -11,5 +11,18 @@
         "psr-4":{
             "Php\\Skeleton\\": "src/"
         }
+    },
+    "autoload-dev":{
+        "psr-4":{
+            "Php\\Skeleton\\": "tests/",
+            "Php\\Skeleton\\": "tests/Fake"
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "extra": {
+        "branch-alias": {
+            "dev-develop": "0.1.x-dev"
+        }
     }
 }
