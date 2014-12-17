@@ -14,10 +14,16 @@
             <arg value="composer.phar" />
             <arg value="global" />
             <arg value="require" />
-            <arg value="h4cc/phpqatools:~1.4" />
-            <arg value="apigen/apigen:dev-master" />
-            <arg value="covex-nn/phpcb:~1.0" />
-            <arg value="fabpot/php-cs-fixer:~0.4" />
+            <arg value="covex-nn/phpcb:*" />
+            <arg value="fabpot/php-cs-fixer:*" />
+            <arg value="apigen/apigen:~4.0@dev" />
+            <arg value="phpmd/phpmd:dev-master" />
+            <arg value="phpunit/phpunit:*" />
+            <arg value="squizlabs/php_codesniffer:*" />
+            <arg value="sebastian/phpcpd:*" />
+            <arg value="mayflower/php-codebrowser:*" />
+            <arg value="sensiolabs/security-checker:*" />
+            <arg value="phploc/phploc:*" />
         </exec>
     </target>
 
