@@ -29,18 +29,14 @@ Various config files are ready for continuous integration.
 
 ### Install
 
-#### Linux
+Linux - [Installing Apache Ant](http://ant.apache.org/manual/install.html)
 
- * [Installing Apache Ant](http://ant.apache.org/manual/install.html)
-
-#### OSX
+OSX
 
     $ port install apache-ant // by mac ports
     $ brew install ant // by brew
 
-#### Windows
-
- * https://code.google.com/p/winant/
+Windows - https://code.google.com/p/winant/
  
 ### Prepare
 
