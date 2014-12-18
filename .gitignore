@@ -6,9 +6,7 @@ nbproject
 .idea
 .project
 .settings
-*/logs/*
-*/cache/*
-build/
-
+cache.properties
+build
 vendor/
 composer.phar
