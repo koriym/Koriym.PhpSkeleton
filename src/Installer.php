@@ -17,6 +17,10 @@ class Installer
         $splFile = new \SplFileInfo($skeletonRoot);
         $folderName = $splFile->getFilename();
         list($vendorName, $packageName) = explode('.', $folderName);
+        $appNameRegex = '/^[A-Za-z0-9]+\.[A-Za-z0-9]+$/';
+        if (! preg_match($appNameRegex, $folderName)) {
+          throw new \LogicException('Package name must be in the format "Vendor.Application".');
+        }
         $jobChmod = function (\SplFileInfo $file) {
             chmod($file, 0777);
         };
