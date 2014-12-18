@@ -8,7 +8,6 @@ php:
   - hhvm
 
 before_script:
- - wget http://cs.sensiolabs.org/get/php-cs-fixer.phar
  - wget https://scrutinizer-ci.com/ocular.phar
 
 script:
