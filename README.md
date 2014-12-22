@@ -19,7 +19,7 @@ Various config files are ready for continuous integration.
 
 ### Create project
 
-    $ composer create-project php/skeleton@dev {Vendor.Package}
+    $ composer create-project php/skeleton {Vendor.Package}
     $ cd {Vendor.Package}
     $ composer dump-autoload
     $ phpunit
