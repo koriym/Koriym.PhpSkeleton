@@ -1,6 +1,6 @@
 <?php
 
-namespace __Vendor__\__Package__;
+namespace Php\Skeleton;
 
 use Composer\Script\Event;
 
