@@ -1,29 +1,29 @@
 <?php
 
-namespace Php\Skeleton;
+namespace __Vendor__\__Package__;
 
-class SkeletonTest extends \PHPUnit_Framework_TestCase
+class __Package__Test extends \PHPUnit_Framework_TestCase
 {
     /**
-     * @var Skeleton
+     * @var __Package__
      */
     protected $skeleton;
 
     protected function setUp()
     {
         parent::setUp();
-        $this->skeleton = new Skeleton;
+        $this->skeleton = new __Package__;
     }
 
     public function testNew()
     {
         $actual = $this->skeleton;
-        $this->assertInstanceOf('\Php\Skeleton\Skeleton', $actual);
+        $this->assertInstanceOf('\__Vendor__\__Package__\__Package__', $actual);
     }
 
     public function testException()
     {
-        $this->setExpectedException('\Php\Skeleton\Exception\LogicException');
+        $this->setExpectedException('\__Vendor__\__Package__\Exception\LogicException');
         throw new Exception\LogicException;
     }
 }
