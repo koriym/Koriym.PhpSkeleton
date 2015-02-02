@@ -1,6 +1,6 @@
 <?php
 
-namespace Php\Skeleton;
+namespace __Vendor__\__Package__;
 
 use Composer\Script\Event;
 
@@ -33,7 +33,6 @@ class Installer
             $contents = str_replace('__Package__', $packageName, $contents);
             $contents = str_replace('__Vendor__', $vendorName, $contents);
             $contents = str_replace('{package_name}', strtolower("{$vendorName}/{$packageName}"), $contents);
-            $contents = str_replace('Php\\Skeleton', "{$vendorName}\\{$packageName}", $contents);
             file_put_contents($file, $contents);
         };
 

@@ -15,11 +15,11 @@
     ],
     "autoload":{
         "psr-4":{
-            "Php\\Skeleton\\": "src/"
+            "__Vendor__\\__Package__\\": "src/"
         }
     },
     "scripts"   :{
-        "post-install-cmd": "Php\\Skeleton\\Installer::postInstall"
+        "post-install-cmd": "__Vendor__\\__Package__\\Installer::postInstall"
     },
     "extra": {
         "branch-alias": {
