@@ -50,7 +50,11 @@ class Installer
 
         // composer.json
         unlink("{$skeletonRoot}/composer.json");
+        $jobRename(new \SplFileInfo("{$skeletonRoot}/composer.json.dist"));
         rename("{$skeletonRoot}/composer.json.dist", "{$skeletonRoot}/composer.json");
+
+        // composer autoload_psr4.php
+        $jobRename(new \SplFileInfo("{$skeletonRoot}/vendor/composer/autoload_psr4.php"));
 
         // delete self
         unlink(__FILE__);
