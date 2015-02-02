@@ -2,17 +2,17 @@
     "name": "{package_name}",
     "description":" ",
     "keywords":[
-    ]
+    ],
     "license": "BSD-3-Clause",
     "autoload":{
         "psr-4":{
-            "Php\\Skeleton\\": "src/"
+            "__Vendor__\\__Package__\\": "src/"
         }
     },
     "autoload-dev":{
         "psr-4":{
-            "Php\\Skeleton\\": "tests/",
-            "Php\\Skeleton\\": "tests/Fake"
+            "__Vendor__\\__Package__\\": "tests/",
+            "__Vendor__\\__Package__\\": "tests/Fake"
         }
     },
     "minimum-stability": "dev",
