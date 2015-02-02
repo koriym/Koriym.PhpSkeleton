@@ -50,6 +50,7 @@ class Installer
 
         // composer.json
         unlink("{$skeletonRoot}/composer.json");
+        $jobRename(new \SplFileInfo("{$skeletonRoot}/composer.json.dist"));
         rename("{$skeletonRoot}/composer.json.dist", "{$skeletonRoot}/composer.json");
 
         // delete self
