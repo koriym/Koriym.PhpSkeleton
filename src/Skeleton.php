@@ -1,11 +1,11 @@
 <?php
 /**
- * This file is part of the Php.Skeleton
+ * This file is part of the __Vendor__.__Package__
  *
  * @license http://opensource.org/licenses/bsd-license.php BSD
  */
-namespace Php\Skeleton;
+namespace __Vendor__\__Package__;
 
-class Skeleton
+class __Package__
 {
 }

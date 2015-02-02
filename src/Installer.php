@@ -1,6 +1,6 @@
 <?php
 
-namespace Php\Skeleton;
+namespace __Vendor__\__Package__;
 
 use Composer\Script\Event;
 
@@ -16,11 +16,11 @@ class Installer
         $skeletonRoot = dirname(__DIR__);
         $splFile = new \SplFileInfo($skeletonRoot);
         $folderName = $splFile->getFilename();
-        list($vendorName, $packageName) = explode('.', $folderName);
         $appNameRegex = '/^[A-Za-z0-9]+\.[A-Za-z0-9]+$/';
         if (! preg_match($appNameRegex, $folderName)) {
           throw new \LogicException('Package name must be in the format "Vendor.Application".');
         }
+        list($vendorName, $packageName) = explode('.', $folderName);
         $jobChmod = function (\SplFileInfo $file) {
             chmod($file, 0777);
         };
@@ -30,9 +30,8 @@ class Installer
                 return;
             }
             $contents = file_get_contents($file);
-            $contents = str_ireplace('Php.Skeleton', $vendorName.'.'.$packageName, $contents);
-            $contents = str_replace('Skeleton', $packageName, $contents);
-            $contents = str_replace('Php', $vendorName, $contents);
+            $contents = str_replace('__Package__', $packageName, $contents);
+            $contents = str_replace('__Vendor__', $vendorName, $contents);
             $contents = str_replace('{package_name}', strtolower("{$vendorName}/{$packageName}"), $contents);
             file_put_contents($file, $contents);
         };
@@ -40,17 +39,17 @@ class Installer
         // rename file contents
         self::recursiveJob("{$skeletonRoot}/src", $jobRename);
         self::recursiveJob("{$skeletonRoot}/tests", $jobRename);
-        $jobRename(new \SplFileInfo("{$skeletonRoot}/build.xml"));
-        $jobRename(new \SplFileInfo("{$skeletonRoot}/phpcs.xml"));
-        $jobRename(new \SplFileInfo("{$skeletonRoot}/phpmd.xml"));
-        $jobRename(new \SplFileInfo("{$skeletonRoot}/phpunit.xml.dist"));
 
         rename("{$skeletonRoot}/src/Skeleton.php", "{$skeletonRoot}/src/{$packageName}.php");
         rename("{$skeletonRoot}/tests/SkeletonTest.php", "{$skeletonRoot}/tests/{$packageName}Test.php");
 
         // composer.json
         unlink("{$skeletonRoot}/composer.json");
+        $jobRename(new \SplFileInfo("{$skeletonRoot}/composer.json.dist"));
         rename("{$skeletonRoot}/composer.json.dist", "{$skeletonRoot}/composer.json");
+
+        // composer autoload_psr4.php
+        $jobRename(new \SplFileInfo("{$skeletonRoot}/vendor/composer/autoload_psr4.php"));
 
         // delete self
         unlink(__FILE__);
