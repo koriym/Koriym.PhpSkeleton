@@ -11,8 +11,7 @@
     },
     "autoload-dev":{
         "psr-4":{
-            "__Vendor__\\__Package__\\": "tests/",
-            "__Vendor__\\__Package__\\": "tests/Fake"
+            "__Vendor__\\__Package__\\": ["tests/", "tests/Fake"]
         }
     },
     "minimum-stability": "dev",
