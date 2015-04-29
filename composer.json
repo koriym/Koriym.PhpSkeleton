@@ -18,6 +18,11 @@
             "__Vendor__\\__Package__\\": "src/"
         }
     },
+    "autoload-dev":{
+        "psr-4":{
+            "__Vendor__\\__Package__\\": ["tests/", "tests/Fake"]
+        }
+    },
     "scripts"   :{
         "post-install-cmd": "__Vendor__\\__Package__\\Installer::postInstall"
     },
