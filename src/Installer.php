@@ -45,6 +45,7 @@ class Installer
 
         // composer.json
         unlink("{$skeletonRoot}/composer.json");
+        unlink("{$skeletonRoot}/composer.lock");
         $jobRename(new \SplFileInfo("{$skeletonRoot}/composer.json.dist"));
         rename("{$skeletonRoot}/composer.json.dist", "{$skeletonRoot}/composer.json");
 
