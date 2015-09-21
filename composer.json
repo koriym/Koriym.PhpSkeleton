@@ -6,7 +6,7 @@
         "PSR"
     ],
     "homepage":"https://github.com/koriym/PHP.Skeleton",
-    "license":"BSD-3-Clause",
+    "license":"MIT",
     "authors": [
         {
             "name": "Akihito Koriyama",
