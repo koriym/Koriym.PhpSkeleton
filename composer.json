@@ -24,7 +24,7 @@
         }
     },
     "scripts"   :{
-        "post-install-cmd": "__Vendor__\\__Package__\\Installer::postInstall"
+        "post-install-cmd": "php bin/initializer.php"
     },
     "extra": {
         "branch-alias": {
