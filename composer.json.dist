@@ -3,7 +3,7 @@
     "description":" ",
     "keywords":[
     ],
-    "license": "BSD-3-Clause",
+    "license": "MIT",
     "autoload":{
         "psr-4":{
             "__Vendor__\\__Package__\\": "src/"
