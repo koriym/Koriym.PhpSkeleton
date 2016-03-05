@@ -9,4 +9,5 @@ nbproject
 cache.properties
 build
 phpunit.xml
+composer.lock
 vendor/
