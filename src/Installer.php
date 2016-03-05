@@ -48,7 +48,7 @@ class Installer
         unlink($skeletonRoot . '/README.md');
         unlink($skeletonPhp);
         unlink($skeletoTest);
- //        unlink(__FILE__);
+        unlink(__FILE__);
     }
 
     /**
