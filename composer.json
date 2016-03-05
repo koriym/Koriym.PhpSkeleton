@@ -13,9 +13,18 @@
             "email": "akihito.koriyama@gmail.com"
         }
     ],
+    "require": {
+        "php": ">=5.5.0"
+    },
+    "require-dev": {
+        "composer/composer": ">=1.0.0-alpha10",
+        "phpunit/phpunit": "~4.8",
+        "squizlabs/php_codesniffer": "~2.3",
+        "phpmd/phpmd": "~2.3"
+    },
     "autoload":{
         "psr-4":{
-            "__Vendor__\\__Package__\\": "src/"
+            "PHP\\Skeleton\\": "src/"
         }
     },
     "autoload-dev":{
@@ -23,8 +32,17 @@
             "__Vendor__\\__Package__\\": ["tests/", "tests/Fake"]
         }
     },
-    "scripts"   :{
-        "post-install-cmd": "php bin/initializer.php"
+    "scripts" :{
+        "pre-install-cmd": ["PHP\\Skeleton\\Installer::preInstall"],
+        "post-install-cmd": [
+            "PHP\\Skeleton\\Installer::postInstall",
+            "php vendor/bin/composer dump-autoload"
+        ],
+        "test": [
+            "php vendor/phpmd/phpmd/src/bin/phpmd src text ./phpmd.xml",
+            "php vendor/squizlabs/php_codesniffer/scripts/phpcs",
+            "php vendor/phpunit/phpunit/phpunit"
+        ]
     },
     "extra": {
         "branch-alias": {
