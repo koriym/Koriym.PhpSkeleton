@@ -17,8 +17,7 @@
         "php": ">=5.5.0"
     },
     "require-dev": {
-        "composer/composer": ">=1.0.0-alpha10",
-        "phpunit/phpunit": "~4.8",
+        "phpunit/phpunit": "~4.8 || ~5.0",
         "squizlabs/php_codesniffer": "~2.3",
         "phpmd/phpmd": "~2.3"
     },

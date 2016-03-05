@@ -98,7 +98,6 @@ class Installer
         unset($composerDefinition['autoload']['files']);
         unset($composerDefinition['scripts']['pre-install-cmd']);
         unset($composerDefinition['scripts']['post-install-cmd']);
-        unset($composerDefinition['require-dev']['composer/composer']);
         $composerDefinition['name'] = $packageName;
         $composerDefinition['authors']['name'] = self::$name;
         $composerDefinition['description'] = '';
