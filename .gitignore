@@ -8,4 +8,5 @@ nbproject
 .settings
 cache.properties
 build
+phpunit.xml
 vendor/

@@ -20,10 +20,4 @@ class __Package__Test extends \PHPUnit_Framework_TestCase
         $actual = $this->skeleton;
         $this->assertInstanceOf('\__Vendor__\__Package__\__Package__', $actual);
     }
-
-    public function testException()
-    {
-        $this->setExpectedException('\__Vendor__\__Package__\Exception\LogicException');
-        throw new Exception\LogicException;
-    }
 }
