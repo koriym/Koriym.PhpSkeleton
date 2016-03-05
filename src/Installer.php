@@ -14,15 +14,20 @@ class Installer
      */
     private static $packageName;
 
+    /**
+     * @var string
+     */
+    private static $name;
+
     public static function preInstall(Event $event)
     {
         $io = $event->getIO();
         $vendorClass = self::ask($io, 'What is the vendor name ?', 'MyVendor');
         $packageClass = self::ask($io, 'What is the package name ?', 'MyPackage');
-        $name = self::ask($io, 'What is your name ?', self::getUserName());
+        self::$name = self::ask($io, 'What is your name ?', self::getUserName());
         $packageName = sprintf('%s/%s', self::camel2dashed($vendorClass), self::camel2dashed($packageClass));
         $json = new JsonFile(Factory::getComposerFile());
-        $composerDefinition = self::getDefinition($name, $vendorClass, $packageClass, $packageName, $json);
+        $composerDefinition = self::getDefinition($vendorClass, $packageClass, $packageName, $json);
         self::$packageName = [$vendorClass, $packageClass];
         // Update composer definition
         $json->write($composerDefinition);
@@ -87,7 +92,7 @@ class Installer
      *
      * @return array
      */
-    private static function getDefinition($name, $vendor, $package, $packageName, JsonFile $json)
+    private static function getDefinition($vendor, $package, $packageName, JsonFile $json)
     {
         $composerDefinition = $json->read();
         unset($composerDefinition['autoload']['files']);
@@ -95,7 +100,7 @@ class Installer
         unset($composerDefinition['scripts']['post-install-cmd']);
         unset($composerDefinition['require-dev']['composer/composer']);
         $composerDefinition['name'] = $packageName;
-        $composerDefinition['authour']['name'] = $name;
+        $composerDefinition['authour']['name'] = self::$name;
         $composerDefinition['description'] = '';
         $composerDefinition['autoload']['psr-4'] = ["{$vendor}\\{$package}\\" => "src/"];
 
@@ -118,6 +123,8 @@ class Installer
             $contents = file_get_contents($file);
             $contents = str_replace('__Vendor__', "{$vendor}", $contents);
             $contents = str_replace('__Package__', "{$package}", $contents);
+            $contents = str_replace('__year__', date('Y'), $contents);
+            $contents = str_replace('__name__', self::$name, $contents);
             file_put_contents($file, $contents);
         };
 
