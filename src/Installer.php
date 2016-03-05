@@ -19,7 +19,7 @@ class Installer
         $io = $event->getIO();
         $vendorClass = self::ask($io, 'What is the vendor name ?', 'MyVendor');
         $packageClass = self::ask($io, 'What is the package name ?', 'MyPackage');
-        $name = self::ask($io, 'What is your name ?', 'Anonymous');
+        $name = self::ask($io, 'What is your name ?', self::getUserName());
         $packageName = sprintf('%s/%s', self::camel2dashed($vendorClass), self::camel2dashed($packageClass));
         $json = new JsonFile(Factory::getComposerFile());
         $composerDefinition = self::getDefinition($name, $vendorClass, $packageClass, $packageName, $json);
@@ -144,5 +144,13 @@ class Installer
     private static function camel2dashed($name)
     {
         return strtolower(preg_replace('/([a-zA-Z])(?=[A-Z])/', '$1-', $name));
+    }
+
+
+    private static function getUserName()
+    {
+        $author = `git config --global user.name`;
+
+        return $author ? trim($author) : '';
     }
 }
