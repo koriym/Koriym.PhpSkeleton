@@ -100,7 +100,7 @@ class Installer
         unset($composerDefinition['scripts']['post-install-cmd']);
         unset($composerDefinition['require-dev']['composer/composer']);
         $composerDefinition['name'] = $packageName;
-        $composerDefinition['authour']['name'] = self::$name;
+        $composerDefinition['authors']['name'] = self::$name;
         $composerDefinition['description'] = '';
         $composerDefinition['autoload']['psr-4'] = ["{$vendor}\\{$package}\\" => "src/"];
 
