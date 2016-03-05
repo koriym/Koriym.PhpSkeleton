@@ -41,15 +41,23 @@ What is your name ?
 
 ## test
 
-`composer test` run `phpcs`, `phpmd` and `phpunit`
+`composer test` run [`phpcs`](https://github.com/squizlabs/PHP_CodeSniffer), [`phpmd`] (https://github.com/phpmd/phpmd) and [`phpunit`](https://github.com/sebastianbergmann/phpunit). Run `phpunit` for unit test only.
 
 ```
 composer test
 ```
 
+## cs-fix
+
+`composer cs-fix` run [`php-cs-fixer`](https://github.com/FriendsOfPHP/PHP-CS-Fixer) and [`phpcbf`](https://github.com/squizlabs/PHP_CodeSniffer/wiki/Fixing-Errors-Automatically) to fix up the PHP code to follow the coding standards.
+
+```
+composer cs-fix
+```
+
 ## build
 
-`composer build` run `apigen`, `phploc`, `pdepend` and `test` above. It's handy for Jenkins. 
+`composer build` run [`apigen`](https://github.com/apigen/apigen), [`phploc`](https://github.com/sebastianbergmann/phploc), [`pdepend`](https://pdepend.org/) and `test` above. It's handy for Jenkins. 
 
 ```
 composer build
