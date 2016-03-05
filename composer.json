@@ -36,7 +36,7 @@
         "pre-install-cmd": ["PHP\\Skeleton\\Installer::preInstall"],
         "post-install-cmd": [
             "PHP\\Skeleton\\Installer::postInstall",
-            "php vendor/bin/composer dump-autoload"
+            "composer update"
         ],
         "test": [
             "phpmd src text ./phpmd.xml",
