@@ -19,36 +19,48 @@ Various config files are ready for continuous integration.
 
 ### Create project
 
-    $ composer create-project php/skeleton {Vendor.Package}
-    $ cd {Vendor.Package}
-    $ phpunit
+    
+```
+composer create-project php/skeleton {project-path}
 
+What is the vendor name ?
 
-## CI - Using ant
+(MyVendor):Koriym
 
-### Install
+What is the package name ?
 
-Linux - [Installing Apache Ant](http://ant.apache.org/manual/install.html)
+(MyPackage):AwesomeProject
 
-OSX
+What is your name ?
 
-    $ port install apache-ant // by mac ports
-    $ brew install ant // by brew
+(Akihito Koriyama):
+```
 
-Windows - https://code.google.com/p/winant/
- 
-### Prepare
+# Composer scripts
 
-#### Install QA(Quality Assurance) tools
-    $ ant require
+## test
 
-#### Export composer bin path 
+`composer test` run `phpcs`, `phpmd` and `phpunit`
 
-    export PATH="$HOME/.composer/vendor/bin:$PATH"
+```
+composer test
+```
 
-### Run
- 
-    $ ant test    // run test
-    $ ant report  // output API and QA docs
+## build
 
-    $ ant         // all (require, test, report)
+`composer build` run `apigen`, `phploc`, `pdepend` and `test` above. It's handy for Jenkins. 
+
+```
+composer build
+```
+# Global installation of QA tools
+
+```
+composer global require bear/qatool
+
+```
+add this directory to your PATH in your ~/.bash_profile (or ~/.bashrc) like this:
+
+```
+export PATH=./vendor/bin:~/.composer/vendor/bin:$PATH
+```
