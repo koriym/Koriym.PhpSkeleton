@@ -97,7 +97,8 @@ class Installer
         $composerDefinition = $json->read();
         unset($composerDefinition['autoload']['files']);
         unset($composerDefinition['scripts']['pre-install-cmd']);
-        unset($composerDefinition['scripts']['post-install-cmd']);
+        unset($composerDefinition['scripts']['pre-update-cmd']);
+        unset($composerDefinition['scripts']['post-create-project-cmd']);
         $composerDefinition['name'] = $packageName;
         $composerDefinition['authors'] = [['name' => self::$name]];
         $composerDefinition['description'] = '';

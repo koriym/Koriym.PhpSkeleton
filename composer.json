@@ -33,7 +33,8 @@
     },
     "scripts" :{
         "pre-install-cmd": ["PHP\\Skeleton\\Installer::preInstall"],
-        "post-install-cmd": [
+        "pre-update-cmd": ["PHP\\Skeleton\\Installer::preInstall"],
+        "post-create-project-cmd": [
             "PHP\\Skeleton\\Installer::postInstall",
             "composer update"
         ],
