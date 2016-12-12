@@ -1,7 +1,5 @@
-# Koriym.PhpSkeleton
-(former php/skeleton)
-
-## A standard PHP project skeleton
+# A standard PHP project skeleton
+(former [php/skeleton](https://packagist.org/packages/php/skeleton))
 
 This project was created in order to provide project skeleton to start new PHP project.
 Various config files are ready for continuous integration.
