@@ -1,11 +1,11 @@
 {
-    "name": "php/skeleton",
-    "description": "Generic PHP.Skeleton package",
+    "name": "koriym/php-skeleton",
+    "description": "Generic PHP project skeleton package",
     "keywords": [
         "Skeleton",
         "PSR"
     ],
-    "homepage": "https://github.com/koriym/PHP.Skeleton",
+    "homepage": "https://github.com/koriym/Koriym.PhpSkeleton",
     "license": "MIT",
     "authors": [
         {
@@ -23,7 +23,7 @@
     },
     "autoload": {
         "psr-4": {
-            "PHP\\Skeleton\\": "src/"
+            "Koriym\\PhpSkeleton\\": "src/"
         }
     },
     "autoload-dev": {
@@ -36,13 +36,13 @@
     },
     "scripts": {
         "pre-install-cmd": [
-            "PHP\\Skeleton\\Installer::preInstall"
+            "Koriym\\PhpSkeleton\\Installer::preInstall"
         ],
         "pre-update-cmd": [
-            "PHP\\Skeleton\\Installer::preInstall"
+            "Koriym\\PhpSkeleton\\Installer::preInstall"
         ],
         "post-create-project-cmd": [
-            "PHP\\Skeleton\\Installer::postInstall",
+            "Koriym\\PhpSkeleton\\Installer::postInstall",
             "composer update"
         ],
         "test": [

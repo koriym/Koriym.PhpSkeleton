@@ -1,4 +1,4 @@
-# PHP.Skeleton
+# Koriym.PhpSkeleton
 
 ## A standard PHP project skeleton
 
@@ -22,7 +22,7 @@ Various config files are ready for continuous integration.
 
     
 ```
-composer create-project php/skeleton {project-path}
+composer create-project koriym/php-skeleton {project-path}
 
 What is the vendor name ?
 
