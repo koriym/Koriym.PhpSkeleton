@@ -1,4 +1,5 @@
 # Koriym.PhpSkeleton
+(former php/skeleton)
 
 ## A standard PHP project skeleton
 
