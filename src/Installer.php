@@ -1,6 +1,6 @@
 <?php
 
-namespace PHP\Skeleton;
+namespace Koriym\PhpSkeleton;
 
 use Composer\Factory;
 use Composer\IO\IOInterface;
