@@ -55,11 +55,10 @@
             "phpcbf src"
         ],
         "build": [
-            "rm -rf ./build; mkdir -p ./build/logs ./build/pdepend ./build/api",
+            "rm -rf ./build; mkdir -p ./build/logs ./build/pdepend",
             "pdepend --jdepend-xml=./build/logs/jdepend.xml --jdepend-chart=./build/pdepend/dependencies.svg --overview-pyramid=./build/pdepend/overview-pyramid.svg src",
             "phploc --log-csv ./build/logs/phploc.csv src",
             "phpcs --report=checkstyle --report-file=./build/logs/checkstyle.xml --standard=phpcs.xml src",
-            "apigen generate -s src -d build/api",
             "@test"
         ]
     },
