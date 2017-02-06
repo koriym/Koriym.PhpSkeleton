@@ -36,6 +36,7 @@ class Installer
 
     public static function postInstall(Event $event = null)
     {
+        unset($event);
         list($vendorName, $packageName) = self::$packageName;
         $skeletonRoot = dirname(__DIR__);
         self::recursiveJob("{$skeletonRoot}", self::rename($vendorName, $packageName));
