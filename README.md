@@ -11,10 +11,6 @@ Various config files are ready for continuous integration.
  * .travis.yml for [Travis CI](https://travis-ci.org/)
  * .scrutinizer for [scrutinizer-ci](https://scrutinizer-ci.com/)
  
-## Requirements
-
- * PHP 5.4+
-
 ## Getting started
 
 ### Create project
