@@ -36,6 +36,7 @@ class Installer
 
     public static function postInstall(Event $event = null)
     {
+        unset($event);
         list($vendorName, $packageName) = self::$packageName;
         $skeletonRoot = dirname(__DIR__);
         self::recursiveJob("{$skeletonRoot}", self::rename($vendorName, $packageName));
@@ -72,8 +73,6 @@ class Installer
     /**
      * @param string   $path
      * @param Callable $job
-     *
-     * @return void
      */
     private static function recursiveJob($path, $job)
     {
@@ -102,7 +101,7 @@ class Installer
         $composerDefinition['name'] = $packageName;
         $composerDefinition['authors'] = [['name' => self::$name]];
         $composerDefinition['description'] = '';
-        $composerDefinition['autoload']['psr-4'] = ["{$vendor}\\{$package}\\" => "src/"];
+        $composerDefinition['autoload']['psr-4'] = ["{$vendor}\\{$package}\\" => 'src/'];
 
         return $composerDefinition;
     }
@@ -152,7 +151,6 @@ class Installer
     {
         return strtolower(preg_replace('/([a-zA-Z])(?=[A-Z])/', '$1-', $name));
     }
-
 
     private static function getUserName()
     {

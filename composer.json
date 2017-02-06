@@ -14,12 +14,12 @@
         }
     ],
     "require": {
-        "php": "~5.6|~7.0"
+        "php": "^5.6 || ^7.0"
     },
     "require-dev": {
-        "phpunit/phpunit": "~4.8 || ~5.0",
-        "squizlabs/php_codesniffer": "~2.3",
-        "phpmd/phpmd": "~2.3"
+        "phpunit/phpunit": "^4.8 || ^5.7 || ^6.0",
+        "squizlabs/php_codesniffer": "^2.8",
+        "phpmd/phpmd": "^2.6"
     },
     "autoload": {
         "psr-4": {
@@ -55,11 +55,10 @@
             "phpcbf src"
         ],
         "build": [
-            "rm -rf ./build; mkdir -p ./build/logs ./build/pdepend ./build/api",
+            "rm -rf ./build; mkdir -p ./build/logs ./build/pdepend",
             "pdepend --jdepend-xml=./build/logs/jdepend.xml --jdepend-chart=./build/pdepend/dependencies.svg --overview-pyramid=./build/pdepend/overview-pyramid.svg src",
             "phploc --log-csv ./build/logs/phploc.csv src",
             "phpcs --report=checkstyle --report-file=./build/logs/checkstyle.xml --standard=phpcs.xml src",
-            "apigen generate -s src -d build/api",
             "@test"
         ]
     },

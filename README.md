@@ -40,7 +40,7 @@ What is your name ?
 
 ## test
 
-`composer test` run [`phpcs`](https://github.com/squizlabs/PHP_CodeSniffer), [`phpmd`] (https://github.com/phpmd/phpmd) and [`phpunit`](https://github.com/sebastianbergmann/phpunit). Run `phpunit` for unit test only.
+`composer test` run [`phpcs`](https://github.com/squizlabs/PHP_CodeSniffer), [`phpmd`](https://github.com/phpmd/phpmd) and [`phpunit`](https://github.com/sebastianbergmann/phpunit). Run `phpunit` for unit test only.
 
 ```
 composer test
@@ -56,21 +56,9 @@ composer cs-fix
 
 ## build
 
-`composer build` run [`apigen`](https://github.com/apigen/apigen), [`phploc`](https://github.com/sebastianbergmann/phploc), [`pdepend`](https://pdepend.org/) and `test` above. It's handy for Jenkins. 
+`composer build` run [`phploc`](https://github.com/sebastianbergmann/phploc), [`pdepend`](https://pdepend.org/) and `test` above. It's handy for Jenkins. 
+You need *composer requirre* `phploc/phploc` and `pdepend/pdepend` for this.
 
 ```
 composer build
 ```
-# Global installation of QA tools
-
-```
-composer global require bear/qatools
-
-```
-Add this directory to your PATH in your ~/.bash_profile (or ~/.bashrc) like this:
-
-```
-export PATH=./vendor/bin:~/.composer/vendor/bin:$PATH
-```
-
-See detail at [bear/qatools](https://github.com/bearsunday/BEAR.QATools).
