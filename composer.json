@@ -51,7 +51,7 @@
             "phpunit"
         ],
         "cs-fix": [
-            "php-cs-fixer fix --config-file=./.php_cs",
+            "php-cs-fixer fix -v",
             "phpcbf src"
         ],
         "build": [
