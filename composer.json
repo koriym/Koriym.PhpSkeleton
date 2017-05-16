@@ -50,6 +50,7 @@
             "phpcs src tests",
             "phpunit"
         ],
+        "coverage": ["php -dzend_extension=xdebug.so ./vendor/bin/phpunit --coverage-text --coverage-html=build/coverage"],
         "cs-fix": [
             "php-cs-fixer fix -v",
             "phpcbf src"
