@@ -131,18 +131,6 @@ class Installer
     }
 
     /**
-     * @return \Closure
-     */
-    private static function chmod()
-    {
-        $jobChmod = function (\SplFileInfo $file) {
-            chmod($file, 0777);
-        };
-
-        return $jobChmod;
-    }
-
-    /**
      * @param string $name
      *
      * @return string
