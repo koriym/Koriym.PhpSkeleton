@@ -53,7 +53,7 @@ composer cs-fix
 ## build
 
 `composer build` run [`phploc`](https://github.com/sebastianbergmann/phploc), [`pdepend`](https://pdepend.org/) and `test` above. It's handy for Jenkins. 
-You need *composer requirre* `phploc/phploc` and `pdepend/pdepend` for this.
+You need *composer require* `phploc/phploc` and `pdepend/pdepend` for this.
 
 ```
 composer build
