@@ -47,7 +47,7 @@ composer test
 `composer coverage` builds test coverage report.
 
 ```
-composer test
+composer coverage
 ```
 ## cs-fix
 
