@@ -1,5 +1,4 @@
 <?php
-
 namespace __Vendor__\__Package__;
 
 class __Package__Test extends \PHPUnit_Framework_TestCase
