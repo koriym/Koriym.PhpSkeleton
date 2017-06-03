@@ -17,7 +17,7 @@
         "php": ">=5.6.0"
     },
     "require-dev": {
-        "phpunit/phpunit": "~5.7 < 6.0",
+        "phpunit/phpunit": "^5.7 || ^6.0",
         "squizlabs/php_codesniffer": "^2.8",
         "friendsofphp/php-cs-fixer": "^2.3",
         "phpmd/phpmd": "^2.6"
@@ -46,10 +46,7 @@
             "Koriym\\PhpSkeleton\\Installer::postInstall",
             "composer update"
         ],
-        "test": [
-            "phpmd src text ./phpmd.xml",
-            "@cs",
-            "phpunit"
+        "test": ["phpmd src text ./phpmd.xml", "@cs", "phpunit"
         ],
         "coverage": ["php -dzend_extension=xdebug.so ./vendor/bin/phpunit --coverage-text --coverage-html=build/coverage"],
         "cs": ["php-cs-fixer fix -v --dry-run", "phpcs --standard=./phpcs.xml src"],
