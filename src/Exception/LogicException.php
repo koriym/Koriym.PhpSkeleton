@@ -6,6 +6,6 @@
  */
 namespace __Vendor__\__Package__\Exception;
 
-class LogicException extends \LogicException implements ExceptionInterface
+class LogicException extends \LogicException
 {
 }

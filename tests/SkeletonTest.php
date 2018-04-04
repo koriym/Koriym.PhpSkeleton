@@ -12,7 +12,6 @@ class __Package__Test extends TestCase
 
     protected function setUp()
     {
-        parent::setUp();
         $this->skeleton = new __Package__;
     }
 
