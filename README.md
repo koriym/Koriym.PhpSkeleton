@@ -10,6 +10,7 @@ Various config files are ready for continuous integration.
  * .php_cs for [php-cs-fixer](https://github.com/FriendsOfPHP/PHP-CS-Fixer)
  * .travis.yml for [Travis CI](https://travis-ci.org/)
  * .scrutinizer for [scrutinizer-ci](https://scrutinizer-ci.com/)
+ * phpstan.neon for [phpstan](https://github.com/phpstan/phpstan)
  
 ## Getting started
 

@@ -20,7 +20,8 @@
         "phpunit/phpunit": "^6.5",
         "squizlabs/php_codesniffer": "^3.2",
         "friendsofphp/php-cs-fixer": "^2.11",
-        "phpmd/phpmd": "^2.6"
+        "phpmd/phpmd": "^2.6",
+        "phpstan/phpstan-shim" : "^0.9"
     },
     "autoload": {
         "psr-4": {
@@ -46,7 +47,7 @@
             "Koriym\\PhpSkeleton\\Installer::postInstall",
             "composer update"
         ],
-        "test": ["@cs", "phpmd src text ./phpmd.xml", "phpunit"],
+        "test": ["@cs", "phpmd src text ./phpmd.xml", "phpstan analyse -l max src tests -c phpstan.neon --no-progress", "phpunit"],
         "coverage": ["php -dzend_extension=xdebug.so ./vendor/bin/phpunit --coverage-text --coverage-html=build/coverage"],
         "cs": ["php-cs-fixer fix -v --dry-run", "phpcs --standard=./phpcs.xml src"],
         "cs-fix": ["php-cs-fixer fix -v", "phpcbf src"],
