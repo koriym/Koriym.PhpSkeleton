@@ -47,16 +47,28 @@
             "Koriym\\PhpSkeleton\\Installer::postInstall",
             "composer update"
         ],
-        "test": ["@cs", "phpmd src text ./phpmd.xml", "phpstan analyse -l max src tests -c phpstan.neon --no-progress", "phpunit"],
+        "test": ["vendor/bin/phpunit"],
+        "tests": [
+            "@cs",
+            "vendor/bin/phpmd src,tests text ./phpmd.xml",
+            "vendor/bin/phpstan analyse -l max src tests -c phpstan.neon --no-progress",
+            "vendor/bin/phpunit"
+        ],
         "coverage": ["php -dzend_extension=xdebug.so ./vendor/bin/phpunit --coverage-text --coverage-html=build/coverage"],
-        "cs": ["php-cs-fixer fix -v --dry-run", "phpcs --standard=./phpcs.xml src"],
-        "cs-fix": ["php-cs-fixer fix -v", "phpcbf src"],
+        "cs": [
+            "vendor/bin/php-cs-fixer fix -v --dry-run",
+            "vendor/bin/phpcs --standard=phpcs.xml src;"
+        ],
+        "cs-fix": [
+            "vendor/bin/php-cs-fixer fix -v",
+            "vendor/bin/phpcbf src tests"
+        ],
         "build": [
             "rm -rf ./build; mkdir -p ./build/logs ./build/pdepend",
             "pdepend --jdepend-xml=./build/logs/jdepend.xml --jdepend-chart=./build/pdepend/dependencies.svg --overview-pyramid=./build/pdepend/overview-pyramid.svg src",
             "phploc --log-csv ./build/logs/phploc.csv src",
             "@cs",
-            "@test"
+            "@tests"
         ]
     },
     "extra": {

@@ -121,6 +121,7 @@ class Installer
             $contents = str_replace('__Package__', "{$package}", $contents);
             $contents = str_replace('__year__', date('Y'), $contents);
             $contents = str_replace('__name__', self::$name, $contents);
+            $contents = str_replace('__PackageVarName__', lcfirst($package), $contents);
             file_put_contents($file, $contents);
         };
 

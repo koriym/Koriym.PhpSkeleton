@@ -1,21 +1,10 @@
 # A standard PHP project skeleton
-(former [php/skeleton](https://packagist.org/packages/php/skeleton))
 
 This project was created in order to provide project skeleton to start new PHP project.
 Various config files are ready for continuous integration.
-
- * phpunit.xml.dist for [phpunit](http://phpunit.de/manual/current/en/index.html)
- * phpmd.xml for [PHPMD](https://phpmd.org)
- * phpcs.xml for [PHP_CodeSniffer](https://github.com/squizlabs/PHP_CodeSniffer/wiki)
- * .php_cs for [php-cs-fixer](https://github.com/FriendsOfPHP/PHP-CS-Fixer)
- * .travis.yml for [Travis CI](https://travis-ci.org/)
- * .scrutinizer for [scrutinizer-ci](https://scrutinizer-ci.com/)
- * phpstan.neon for [phpstan](https://github.com/phpstan/phpstan)
  
-## Getting started
-
-### Create project
-
+## Create Project
+   
     
 ```
 composer create-project koriym/php-skeleton {project-path}
@@ -26,43 +15,33 @@ What is the vendor name ?
 
 What is the package name ?
 
-(MyPackage):AwesomeProject
+(MyPackage):AwesomePackage.
 
 What is your name ?
 
 (Akihito Koriyama):
 ```
 
-# Composer scripts
+## Composer Commands
 
-## test
+### test
 
-`composer test` run [`phpcs`](https://github.com/squizlabs/PHP_CodeSniffer), [`phpmd`](https://github.com/phpmd/phpmd) and [`phpunit`](https://github.com/sebastianbergmann/phpunit). Run `phpunit` for unit test only.
+`composer test` run [`phpunit`](https://github.com/sebastianbergmann/phpunit).
 
-```
-composer test
-```
+### tests
 
-## coverage
+`composer tests` run [`phpcs`](https://github.com/squizlabs/PHP_CodeSniffer), [`php-cs-fixer`](https://github.com/FriendsOfPHP/PHP-CS-Fixer), [`phpmd`](https://github.com/phpmd/phpmd), [`phpstan`](https://github.com/phpstan/phpstan) and [`phpunit`](https://github.com/sebastianbergmann/phpunit). 
+
+### coverage
 
 `composer coverage` builds test coverage report.
 
-```
-composer coverage
-```
-## cs-fix
+### cs-fix
 
 `composer cs-fix` run [`php-cs-fixer`](https://github.com/FriendsOfPHP/PHP-CS-Fixer) and [`phpcbf`](https://github.com/squizlabs/PHP_CodeSniffer/wiki/Fixing-Errors-Automatically) to fix up the PHP code to follow the coding standards. (Check only command `compposer cs` is also available.)
 
-```
-composer cs-fix
-```
 
-## build
+### build
 
-`composer build` run [`phploc`](https://github.com/sebastianbergmann/phploc), [`pdepend`](https://pdepend.org/) and `test` above. It's handy for Jenkins. 
-You need *composer require* `phploc/phploc` and `pdepend/pdepend` for this.
-
-```
-composer build
-```
+`composer build` run [`phploc`](https://github.com/sebastianbergmann/phploc), [`pdepend`](https://pdepend.org/) and [tests](#tests) above. It's handy for Jenkins. 
+You need "composer require phploc/phploc pdepend/pdepend --dev" for this.

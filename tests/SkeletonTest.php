@@ -1,4 +1,9 @@
 <?php
+/**
+ * This file is part of the __Vendor__.__Package__
+ *
+ * @license http://opensource.org/licenses/MIT MIT
+ */
 namespace __Vendor__\__Package__;
 
 use PHPUnit\Framework\TestCase;
@@ -8,16 +13,16 @@ class __Package__Test extends TestCase
     /**
      * @var __Package__
      */
-    protected $skeleton;
+    protected $__PackageVarName__;
 
     protected function setUp()
     {
-        $this->skeleton = new __Package__;
+        $this->__PackageVarName__ = new __Package__;
     }
 
-    public function testNew()
+    public function testIsInstanceOf__Package__()
     {
-        $actual = $this->skeleton;
-        $this->assertInstanceOf('\__Vendor__\__Package__\__Package__', $actual);
+        $actual = $this->__PackageVarName__;
+        $this->assertInstanceOf(__Package__::class, $actual);
     }
 }
