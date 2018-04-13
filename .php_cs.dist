@@ -120,8 +120,8 @@ return \PhpCsFixer\Config::create()
         'unary_operator_spaces' => true,
         'whitespace_after_comma_in_array' => true
     ))
+    ->setLineEnding("\n")
     ->setFinder(
         PhpCsFixer\Finder::create()
             ->in(__DIR__)
-    ->setUsingCache(true)
-    )->setLineEnding("\n");
+    );
