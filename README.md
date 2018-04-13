@@ -7,7 +7,7 @@ Various config files are ready for continuous integration.
    
     
 ```
-composer create-project koriym/php-skeleton {project-path}
+composer create-project koriym/php-skeleton {project-path} ^1.0@dev
 
 What is the vendor name ?
 
