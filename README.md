@@ -15,7 +15,7 @@ What is the vendor name ?
 
 What is the package name ?
 
-(MyPackage):AwesomeProject
+(MyPackage):AwesomePackage.
 
 What is your name ?
 
@@ -26,7 +26,7 @@ What is your name ?
 
 ### test
 
-`composer test` run [`phpunit`]([phpunit](http://phpunit.de/manual/current/en/index.html)).
+`composer test` run [`phpunit`](https://github.com/sebastianbergmann/phpunit).
 
 ### tests
 
@@ -43,5 +43,5 @@ What is your name ?
 
 ### build
 
-`composer build` run [`phploc`](https://github.com/sebastianbergmann/phploc), [`pdepend`](https://pdepend.org/) and `test` above. It's handy for Jenkins. 
+`composer build` run [`phploc`](https://github.com/sebastianbergmann/phploc), [`pdepend`](https://pdepend.org/) and [tests](#tests) above. It's handy for Jenkins. 
 You need "composer require phploc/phploc pdepend/pdepend --dev" for this.
