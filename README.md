@@ -15,7 +15,7 @@ What is the vendor name ?
 
 What is the package name ?
 
-(MyPackage):AwesomePackage.
+(MyPackage):AwesomePackage
 
 What is your name ?
 
