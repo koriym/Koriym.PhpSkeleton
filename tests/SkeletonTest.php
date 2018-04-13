@@ -7,7 +7,6 @@
 namespace __Vendor__\__Package__;
 
 use PHPUnit\Framework\TestCase;
-use __Vendor__\__Package__\__Package__;
 
 class __Package__Test extends TestCase
 {
