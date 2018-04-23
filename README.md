@@ -64,4 +64,5 @@ You need "composer require phploc/phploc pdepend/pdepend --dev" for this.
 
 ## Setup continuous integration
 
-Maybe some instructions with screenshot on how to setup GitHub CI and Scrutinizr?
+ * [Travis CI](https://docs.travis-ci.com/user/getting-started)
+ * [Scrutinizer](https://scrutinizer-ci.com/docs/)
