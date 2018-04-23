@@ -20,6 +20,22 @@ To create your project, enter the following command in your console.
 composer create-project koriym/php-skeleton {project-path}
 ```
 
+You will be asked a few questions to configure the project:
+
+```
+What is the vendor name ?
+
+(MyVendor):Koriym
+
+What is the package name ?
+
+(MyPackage):AwesomePackage.
+
+What is your name ?
+
+(Akihito Koriyama):
+```
+
 ## Composer Commands
 
 Once installed, the project will automatically be configured so you can run those commands in the root of your application:
