@@ -8,8 +8,9 @@ It will automatically install the following dependencies:
 
 * PHPUnit 6.x: run your unit tests.
 * PHP_CodeSniffer: validate your code against code convention.
-* PHP_CsFixer: automatically fix your code to match the code convention.
+* PHP CS Fixer: automatically fix your code to match the code convention.
 * PHPMD: analyze your code to detect sub-optimal or overly complex code.
+* PHPStan: analyze your code without running it to find bugs even before you write tests for the code. 
 
 As well as config file for popular continuous integration tool.
  
