@@ -17,6 +17,7 @@ As well as config file for popular continuous integration tool.
 ## Create Project
    
 To create your project, enter the following command in your console.    
+
 ```
 composer create-project koriym/php-skeleton {project-path}
 ```
@@ -30,7 +31,7 @@ What is the vendor name ?
 
 What is the package name ?
 
-(MyPackage):AwesomePackage.
+(MyPackage):AwesomePackage
 
 What is your name ?
 
