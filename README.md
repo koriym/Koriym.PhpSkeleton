@@ -1,14 +1,29 @@
 # A standard PHP project skeleton
 
-This project was created in order to provide project skeleton to start new PHP project.
-Various config files are ready for continuous integration.
+Are you tired of copy-pasting your boilerplate PHP code whenever you need to start a new project?
+
+This repository contains a single-line command that will automatically setup for you all the needed code to create a modern, clutter-free and test-oriented PHP package.
+
+It will automatically install the following dependencies:
+
+* PHPUnit 6.x: run your unit tests.
+* PHP_CodeSniffer: validate your code against code convention.
+* PHP CS Fixer: automatically fix your code to match the code convention.
+* PHPMD: analyze your code to detect sub-optimal or overly complex code.
+* PHPStan: analyze your code without running it to find bugs even before you write tests for the code. 
+
+As well as config file for popular continuous integration tool.
  
 ## Create Project
    
-    
+To create your project, enter the following command in your console.    
 ```
 composer create-project koriym/php-skeleton {project-path}
+```
 
+You will be asked a few questions to configure the project:
+
+```
 What is the vendor name ?
 
 (MyVendor):Koriym
@@ -23,6 +38,8 @@ What is your name ?
 ```
 
 ## Composer Commands
+
+Once installed, the project will automatically be configured so you can run those commands in the root of your application:
 
 ### test
 
@@ -45,3 +62,8 @@ What is your name ?
 
 `composer build` run [`phploc`](https://github.com/sebastianbergmann/phploc), [`pdepend`](https://pdepend.org/) and [tests](#tests) above. It's handy for Jenkins. 
 You need "composer require phploc/phploc pdepend/pdepend --dev" for this.
+
+## Setup continuous integration
+
+ * [Travis CI](https://docs.travis-ci.com/user/getting-started)
+ * [Scrutinizer](https://scrutinizer-ci.com/docs/)
