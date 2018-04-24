@@ -17,6 +17,11 @@ class Installer
      * @var string
      */
     private static $name;
+    
+    /**
+     * @var string
+     */
+    private static $email;
 
     public static function preInstall(Event $event)
     {
@@ -24,6 +29,7 @@ class Installer
         $vendorClass = self::ask($io, 'What is the vendor name ?', 'MyVendor');
         $packageClass = self::ask($io, 'What is the package name ?', 'MyPackage');
         self::$name = self::ask($io, 'What is your name ?', self::getUserName());
+        self::$email = self::ask($io, 'What is your emaill address ?', self::getUserEmail());
         $packageName = sprintf('%s/%s', self::camel2dashed($vendorClass), self::camel2dashed($packageClass));
         $json = new JsonFile(Factory::getComposerFile());
         $composerDefinition = self::getDefinition($vendorClass, $packageClass, $packageName, $json);
@@ -84,7 +90,10 @@ class Installer
 
         $composerDefinition['name'] = $packageName;
         $composerDefinition['authors'] = [
-            ['name' => self::$name]
+            [
+                'name' => self::$name,
+                'email' => self::$email
+            ]
         ];
         $composerDefinition['description'] = '';
         $composerDefinition['autoload']['psr-4'] = ["{$vendor}\\{$package}\\" => 'src/'];
@@ -121,5 +130,12 @@ class Installer
         $author = `git config --global user.name`;
 
         return $author ? trim($author) : '';
+    }
+    
+    private static function getUserEmail() : string
+    {
+        $email = `git config --global user.email`;
+        
+        return $email ? trim($email) : '';
     }
 }

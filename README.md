@@ -36,6 +36,10 @@ What is the package name ?
 What is your name ?
 
 (Akihito Koriyama):
+
+What is your email address ?
+
+(akihito.koriyama@gmail.com):
 ```
 
 ## Composer Commands
