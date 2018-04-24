@@ -62,13 +62,6 @@
         "cs-fix": [
             "vendor/bin/php-cs-fixer fix -v",
             "vendor/bin/phpcbf src tests"
-        ],
-        "build": [
-            "rm -rf ./build; mkdir -p ./build/logs ./build/pdepend",
-            "pdepend --jdepend-xml=./build/logs/jdepend.xml --jdepend-chart=./build/pdepend/dependencies.svg --overview-pyramid=./build/pdepend/overview-pyramid.svg src",
-            "phploc --log-csv ./build/logs/phploc.csv src",
-            "@cs",
-            "@tests"
         ]
     }
 }
