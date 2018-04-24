@@ -19,7 +19,7 @@ As well as config file for popular continuous integration tool.
 To create your project, enter the following command in your console.    
 
 ```
-composer create-project koriym/php-skeleton {project-path}
+composer create-project koriym/php-skeleton <project-path>
 ```
 
 You will be asked a few questions to configure the project:
