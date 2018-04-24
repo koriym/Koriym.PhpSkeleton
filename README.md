@@ -19,7 +19,7 @@ As well as config file for popular continuous integration tool.
 To create your project, enter the following command in your console.    
 
 ```
-composer create-project koriym/php-skeleton {project-path}
+composer create-project koriym/php-skeleton <project-path>
 ```
 
 You will be asked a few questions to configure the project:
@@ -36,6 +36,10 @@ What is the package name ?
 What is your name ?
 
 (Akihito Koriyama):
+
+What is your email address ?
+
+(akihito.koriyama@gmail.com):
 ```
 
 ## Composer Commands
@@ -58,11 +62,6 @@ Once installed, the project will automatically be configured so you can run thos
 
 `composer cs-fix` run [`php-cs-fixer`](https://github.com/FriendsOfPHP/PHP-CS-Fixer) and [`phpcbf`](https://github.com/squizlabs/PHP_CodeSniffer/wiki/Fixing-Errors-Automatically) to fix up the PHP code to follow the coding standards. (Check only command `compposer cs` is also available.)
 
-
-### build
-
-`composer build` run [`phploc`](https://github.com/sebastianbergmann/phploc), [`pdepend`](https://pdepend.org/) and [tests](#tests) above. It's handy for Jenkins. 
-You need "composer require phploc/phploc pdepend/pdepend --dev" for this.
 
 ## Setup continuous integration
 

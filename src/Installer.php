@@ -17,6 +17,11 @@ class Installer
      * @var string
      */
     private static $name;
+    
+    /**
+     * @var string
+     */
+    private static $email;
 
     public static function preInstall(Event $event)
     {
@@ -24,6 +29,7 @@ class Installer
         $vendorClass = self::ask($io, 'What is the vendor name ?', 'MyVendor');
         $packageClass = self::ask($io, 'What is the package name ?', 'MyPackage');
         self::$name = self::ask($io, 'What is your name ?', self::getUserName());
+        self::$email = self::ask($io, 'What is your emaill address ?', self::getUserEmail());
         $packageName = sprintf('%s/%s', self::camel2dashed($vendorClass), self::camel2dashed($packageClass));
         $json = new JsonFile(Factory::getComposerFile());
         $composerDefinition = self::getDefinition($vendorClass, $packageClass, $packageName, $json);
@@ -51,14 +57,7 @@ class Installer
         unlink(__FILE__);
     }
 
-    /**
-     * @param IOInterface $io
-     * @param string      $question
-     * @param string      $default
-     *
-     * @return string
-     */
-    private static function ask(IOInterface $io, $question, $default)
+    private static function ask(IOInterface $io, string $question, string $default) : string
     {
         $ask = [
             sprintf("\n<question>%s</question>\n", $question),
@@ -69,11 +68,7 @@ class Installer
         return $answer;
     }
 
-    /**
-     * @param string   $path
-     * @param callable $job
-     */
-    private static function recursiveJob($path, $job)
+    private static function recursiveJob(string $path, callable $job)
     {
         $iterator = new \RecursiveIteratorIterator(new \RecursiveDirectoryIterator($path), \RecursiveIteratorIterator::SELF_FIRST);
         foreach ($iterator as $file) {
@@ -81,35 +76,32 @@ class Installer
         }
     }
 
-    /**
-     * @param string   $name
-     * @param string   $vendor
-     * @param string   $package
-     * @param string   $packageName
-     * @param JsonFile $json
-     *
-     * @return array
-     */
-    private static function getDefinition($vendor, $package, $packageName, JsonFile $json)
+    private static function getDefinition(string $vendor, string $package, string $packageName, JsonFile $json) : array
     {
         $composerDefinition = $json->read();
-        unset($composerDefinition['autoload']['files'], $composerDefinition['scripts']['pre-install-cmd'], $composerDefinition['scripts']['pre-update-cmd'], $composerDefinition['scripts']['post-create-project-cmd']);
+        unset(
+            $composerDefinition['autoload']['files'],
+            $composerDefinition['scripts']['pre-install-cmd'],
+            $composerDefinition['scripts']['pre-update-cmd'],
+            $composerDefinition['scripts']['post-create-project-cmd'],
+            $composerDefinition['keywords'],
+            $composerDefinition['homepage']
+        );
 
         $composerDefinition['name'] = $packageName;
-        $composerDefinition['authors'] = [['name' => self::$name]];
+        $composerDefinition['authors'] = [
+            [
+                'name' => self::$name,
+                'email' => self::$email
+            ]
+        ];
         $composerDefinition['description'] = '';
         $composerDefinition['autoload']['psr-4'] = ["{$vendor}\\{$package}\\" => 'src/'];
 
         return $composerDefinition;
     }
 
-    /**
-     * @param string $vendor
-     * @param string $package
-     *
-     * @return \Closure
-     */
-    private static function rename($vendor, $package)
+    private static function rename(string $vendor, string $package) : \Closure
     {
         $jobRename = function (\SplFileInfo $file) use ($vendor, $package) {
             $fineName = $file->getFilename();
@@ -128,20 +120,22 @@ class Installer
         return $jobRename;
     }
 
-    /**
-     * @param string $name
-     *
-     * @return string
-     */
-    private static function camel2dashed($name)
+    private static function camel2dashed(string $name) : string
     {
         return strtolower(preg_replace('/([a-zA-Z])(?=[A-Z])/', '$1-', $name));
     }
 
-    private static function getUserName()
+    private static function getUserName() : string
     {
         $author = `git config --global user.name`;
 
         return $author ? trim($author) : '';
+    }
+    
+    private static function getUserEmail() : string
+    {
+        $email = `git config --global user.email`;
+        
+        return $email ? trim($email) : '';
     }
 }
