@@ -52,7 +52,7 @@
             "@cs",
             "vendor/bin/phpmd src,tests text ./phpmd.xml",
             "vendor/bin/phpstan analyse -l max src tests -c phpstan.neon --no-progress",
-            "vendor/bin/phpunit"
+            "@test"
         ],
         "coverage": ["php -dzend_extension=xdebug.so ./vendor/bin/phpunit --coverage-text --coverage-html=build/coverage"],
         "cs": [
