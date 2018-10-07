@@ -70,6 +70,7 @@
             "vendor/bin/phploc tests/"
         ],
         "metrics": [
+            "vendor/bin/phpunit --log-junit build/junit.xml",
             "vendor/bin/phpmetrics --report-html=build/metrics/ --extensions=php src,composer.json,composer.lock --junit=build/junit.xml"
         ]
     }
