@@ -21,7 +21,9 @@
         "squizlabs/php_codesniffer": "^3.2",
         "friendsofphp/php-cs-fixer": "^2.11",
         "phpmd/phpmd": "^2.6",
-        "phpstan/phpstan-shim" : "^0.9"
+        "phpstan/phpstan-shim" : "^0.9",
+        "phploc/phploc": "^4.0",
+        "phpmetrics/phpmetrics": "^2.4"
     },
     "autoload": {
         "psr-4": {
@@ -62,6 +64,13 @@
         "cs-fix": [
             "vendor/bin/php-cs-fixer fix -v",
             "vendor/bin/phpcbf src tests"
+        ],
+        "loc": [
+            "vendor/bin/phploc src/",
+            "vendor/bin/phploc tests/"
+        ],
+        "metrics": [
+            "vendor/bin/phpmetrics --report-html=build/metrics/ --extensions=php src,composer.json,composer.lock --junit=build/junit.xml"
         ]
     }
 }
