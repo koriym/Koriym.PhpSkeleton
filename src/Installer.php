@@ -17,7 +17,7 @@ class Installer
      * @var string
      */
     private static $name;
-    
+
     /**
      * @var string
      */
@@ -131,11 +131,11 @@ class Installer
 
         return $author ? trim($author) : '';
     }
-    
+
     private static function getUserEmail() : string
     {
         $email = `git config --global user.email`;
-        
+
         return $email ? trim($email) : '';
     }
 }
