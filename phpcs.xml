@@ -1,5 +1,6 @@
-<?xml version="1.0"?>
-<ruleset name="PHP Coding Standards">>
+<?xml version="1.0" encoding="UTF-8"?>
+<ruleset name="PHP_CodeSniffer" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="./vendor/squizlabs/php_codesniffer/phpcs.xsd">
     <rule ref="Generic.NamingConventions.UpperCaseConstantName"/>
     <rule ref="Generic.CodeAnalysis.UnusedFunctionParameter"/>
     <rule ref="Generic.Strings.UnnecessaryStringConcat"/>
