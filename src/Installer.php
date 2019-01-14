@@ -106,17 +106,18 @@ class Installer
     private static function rename(string $vendor, string $package) : \Closure
     {
         $jobRename = function (\SplFileInfo $file) use ($vendor, $package) : void {
-            $fineName = $file->getFilename();
-            if ($file->isDir() || strpos($fineName, '.') === 0 || ! is_writable($file)) {
+            $fileName = $file->getFilename();
+            $filePath = (string) $file;
+            if ($file->isDir() || strpos($fileName, '.') === 0 || ! is_writable($filePath)) {
                 return;
             }
-            $contents = file_get_contents($file);
+            $contents = file_get_contents($filePath);
             $contents = str_replace('__Vendor__', "{$vendor}", $contents);
             $contents = str_replace('__Package__', "{$package}", $contents);
             $contents = str_replace('__year__', date('Y'), $contents);
             $contents = str_replace('__name__', self::$name, $contents);
             $contents = str_replace('__PackageVarName__', lcfirst($package), $contents);
-            file_put_contents($file, $contents);
+            file_put_contents($filePath, $contents);
         };
 
         return $jobRename;
