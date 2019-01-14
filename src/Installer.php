@@ -1,4 +1,7 @@
 <?php
+
+declare(strict_types=1);
+
 namespace Koriym\PhpSkeleton;
 
 use Composer\Factory;
@@ -17,13 +20,13 @@ class Installer
      * @var string
      */
     private static $name;
-    
+
     /**
      * @var string
      */
     private static $email;
 
-    public static function preInstall(Event $event)
+    public static function preInstall(Event $event) : void
     {
         $io = $event->getIO();
         $vendorClass = self::ask($io, 'What is the vendor name ?', 'MyVendor');
@@ -39,7 +42,7 @@ class Installer
         $io->write("<info>composer.json for {$composerDefinition['name']} is created.\n</info>");
     }
 
-    public static function postInstall(Event $event = null)
+    public static function postInstall(Event $event = null) : void
     {
         unset($event);
         list($vendorName, $packageName) = self::$packageName;
@@ -63,12 +66,11 @@ class Installer
             sprintf("\n<question>%s</question>\n", $question),
             sprintf("\n(<comment>%s</comment>):", $default)
         ];
-        $answer = $io->ask($ask, $default);
 
-        return $answer;
+        return $io->ask($ask, $default);
     }
 
-    private static function recursiveJob(string $path, callable $job)
+    private static function recursiveJob(string $path, callable $job) : void
     {
         $iterator = new \RecursiveIteratorIterator(new \RecursiveDirectoryIterator($path), \RecursiveIteratorIterator::SELF_FIRST);
         foreach ($iterator as $file) {
@@ -103,18 +105,19 @@ class Installer
 
     private static function rename(string $vendor, string $package) : \Closure
     {
-        $jobRename = function (\SplFileInfo $file) use ($vendor, $package) {
-            $fineName = $file->getFilename();
-            if ($file->isDir() || strpos($fineName, '.') === 0 || ! is_writable($file)) {
+        $jobRename = function (\SplFileInfo $file) use ($vendor, $package) : void {
+            $fileName = $file->getFilename();
+            $filePath = (string) $file;
+            if ($file->isDir() || strpos($fileName, '.') === 0 || ! is_writable($filePath)) {
                 return;
             }
-            $contents = file_get_contents($file);
+            $contents = file_get_contents($filePath);
             $contents = str_replace('__Vendor__', "{$vendor}", $contents);
             $contents = str_replace('__Package__', "{$package}", $contents);
             $contents = str_replace('__year__', date('Y'), $contents);
             $contents = str_replace('__name__', self::$name, $contents);
             $contents = str_replace('__PackageVarName__', lcfirst($package), $contents);
-            file_put_contents($file, $contents);
+            file_put_contents($filePath, $contents);
         };
 
         return $jobRename;
@@ -127,15 +130,15 @@ class Installer
 
     private static function getUserName() : string
     {
-        $author = `git config --global user.name`;
+        $author = shell_exec('git config --global user.name');
 
         return $author ? trim($author) : '';
     }
-    
+
     private static function getUserEmail() : string
     {
-        $email = `git config --global user.email`;
-        
+        $email = shell_exec('git config --global user.email');
+
         return $email ? trim($email) : '';
     }
 }
