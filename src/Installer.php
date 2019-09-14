@@ -32,7 +32,7 @@ class Installer
         $vendorClass = self::ask($io, 'What is the vendor name ?', 'MyVendor');
         $packageClass = self::ask($io, 'What is the package name ?', 'MyPackage');
         self::$name = self::ask($io, 'What is your name ?', self::getUserName());
-        self::$email = self::ask($io, 'What is your emaill address ?', self::getUserEmail());
+        self::$email = self::ask($io, 'What is your email address ?', self::getUserEmail());
         $packageName = sprintf('%s/%s', self::camel2dashed($vendorClass), self::camel2dashed($packageClass));
         $json = new JsonFile(Factory::getComposerFile());
         $composerDefinition = self::getDefinition($vendorClass, $packageClass, $packageName, $json);
