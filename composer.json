@@ -43,7 +43,7 @@
         "pre-update-cmd": [
             "Koriym\\PhpSkeleton\\Installer::preInstall"
         ],
-        "post-create-project-cmd": [
+        "post-install-cmd": [
             "Koriym\\PhpSkeleton\\Installer::postInstall",
             "composer update"
         ],
