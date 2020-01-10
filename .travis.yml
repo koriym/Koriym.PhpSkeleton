@@ -7,11 +7,6 @@ php:
 - 7.3
 - nightly
 
-cache:
-  directories:
-  - vendor
-  - $HOME/.composer/cache
-
 matrix:
   fast_finish: true
 
