@@ -21,7 +21,8 @@
         "squizlabs/php_codesniffer": "^3.5",
         "friendsofphp/php-cs-fixer": "^2.16",
         "phpmd/phpmd": "^2.6",
-        "phpstan/phpstan" : "^0.12"
+        "phpstan/phpstan" : "^0.12",
+        "vimeo/psalm": "^0.3"
     },
     "autoload": {
         "psr-4": {
@@ -52,6 +53,7 @@
             "@cs",
             "vendor/bin/phpmd src,tests text ./phpmd.xml",
             "vendor/bin/phpstan analyse -l max src tests -c phpstan.neon --no-progress",
+            "vendor/bin/psalm",
             "@test"
         ],
         "coverage": ["php -dzend_extension=xdebug.so ./vendor/bin/phpunit --coverage-text --coverage-html=build/coverage"],
