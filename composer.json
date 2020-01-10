@@ -46,7 +46,8 @@
         ],
         "post-create-project-cmd": [
             "Koriym\\PhpSkeleton\\Installer::postInstall",
-            "composer update"
+            "composer update",
+            "./vendor/bin/psalm --init"
         ],
         "test": ["vendor/bin/phpunit"],
         "tests": [
