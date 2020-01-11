@@ -44,7 +44,7 @@ class Installer
 
     public static function postInstall(Event $event = null) : void
     {
-        unset($event);
+        $io = $event->getIO();
         list($vendorName, $packageName) = self::$packageName;
         $skeletonRoot = dirname(__DIR__);
         self::recursiveJob("{$skeletonRoot}", self::rename($vendorName, $packageName));
@@ -58,6 +58,7 @@ class Installer
         unlink($skeletonPhp);
         unlink($skeletoTest);
         unlink(__FILE__);
+        $io->write("<info>{$vendorName}/{$packageName} class files created.\n</info>");
     }
 
     private static function ask(IOInterface $io, string $question, string $default) : string
