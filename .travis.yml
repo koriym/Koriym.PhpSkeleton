@@ -30,7 +30,7 @@ jobs:
   - stage: Test
     name: Lowest dependencies
     php: 7.2
-    install: composer update --prefer-dist --prefer-lowest
+    install: composer install --prefer-dist --prefer-lowest
 
   - stage: Test
     name: Code coverage
