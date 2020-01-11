@@ -2,10 +2,15 @@ language: php
 sudo: false
 
 php:
-- 7.1
 - 7.2
 - 7.3
+- 7.4
 - nightly
+
+cache:
+  directories:
+    - vendor
+    - $HOME/.composer/cache
 
 matrix:
   fast_finish: true
