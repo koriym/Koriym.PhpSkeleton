@@ -131,14 +131,14 @@ class Installer
 
     private static function getUserName() : string
     {
-        $author = shell_exec('git config --global user.name');
+        $author = shell_exec('git config --global user.name || git config user.name');
 
         return $author ? trim($author) : '';
     }
 
     private static function getUserEmail() : string
     {
-        $email = shell_exec('git config --global user.email');
+        $email = shell_exec('git config --global user.email || git config user.email');
 
         return $email ? trim($email) : '';
     }
