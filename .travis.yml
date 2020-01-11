@@ -11,6 +11,6 @@ cache:
     - vendor
     - $HOME/.composer/cache
 
-before_script
+before_script:
 script:
   - ./vendor/bin/phpunit --coverage-clover=coverage.clover
