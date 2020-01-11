@@ -1,5 +1,5 @@
 # A standard PHP project skeleton
-[![Build Status](https://travis-ci.org/koriym/Koriym.PhpSkeletonTest.svg?branch=master)](https://travis-ci.org/koriym/Koriym.PhpSkeletonTest)
+[![Build Status](https://travis-ci.org/koriym/Koriym.PhpSkeleton.svg?branch=1.x)](https://travis-ci.org/koriym/Koriym.PhpSkeleton)
 
 Are you tired of copy-pasting your boilerplate PHP code whenever you need to start a new project?
 
