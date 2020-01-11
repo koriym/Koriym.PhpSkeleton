@@ -11,6 +11,7 @@ cache:
     - vendor
     - $HOME/.composer/cache
 
+before_script:
 install:
   - composer install
 
@@ -22,7 +23,8 @@ jobs:
     - stage: Test
       name: Lowest dependencies
       php: 7.2
-      install: composer install --prefer-dist --prefer-lowest
+      before_script:
+      install: composer install; composer update --prefer-dist --prefer-lowest
 
     - stage: Test
       name: Code coverage
