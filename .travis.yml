@@ -11,6 +11,10 @@ cache:
     - vendor
     - $HOME/.composer/cache
 
+install:
+  - composer install
+
 before_script:
+
 script:
   - ./vendor/bin/phpunit --coverage-clover=coverage.clover
