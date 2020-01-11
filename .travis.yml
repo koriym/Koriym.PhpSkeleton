@@ -11,24 +11,6 @@ cache:
     - vendor
     - $HOME/.composer/cache
 
-before_script:
-install:
-  - composer install
-
+before_script
 script:
-  - ./vendor/bin/phpunit;
-
-jobs:
-  include:
-    - stage: Test
-      name: Lowest dependencies
-      php: 7.2
-      before_script:
-      install: composer install; composer update --prefer-dist --prefer-lowest
-
-    - stage: Test
-      name: Code coverage
-      php: 7.2
-      before_script:
-      script:
-        - ./vendor/bin/phpunit --coverage-clover=coverage.clover
+  - ./vendor/bin/phpunit --coverage-clover=coverage.clover
