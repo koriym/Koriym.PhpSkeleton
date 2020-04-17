@@ -56,22 +56,10 @@
             "./vendor/bin/psalm --init"
         ],
         "test": ["vendor/bin/phpunit"],
-        "tests": [
-            "@cs",
-            "./vendor/bin/phpmd src,tests text ./phpmd.xml",
-            "./vendor/bin/phpstan analyse -l max src tests -c phpstan.neon --no-progress",
-            "./vendor/bin/psalm",
-            "@test"
-        ],
+        "tests": ["@cs", "./vendor/bin/phpmd src,tests text ./phpmd.xml", "./vendor/bin/phpstan analyse -l max src tests -c phpstan.neon --no-progress", "./vendor/bin/psalm", "@test"],
         "coverage": ["php -dzend_extension=xdebug.so ./vendor/bin/phpunit --coverage-text --coverage-html=build/coverage"],
-        "cs": [
-            "./vendor/bin/php-cs-fixer fix -v --dry-run",
-            "./vendor/bin/phpcs --standard=phpcs.xml src;"
-        ],
-        "cs-fix": [
-            "./vendor/bin/php-cs-fixer fix -v",
-            "./vendor/bin/phpcbf src tests"
-        ],
+        "cs": ["./vendor/bin/php-cs-fixer fix -v --dry-run", "./vendor/bin/phpcs --standard=phpcs.xml src;"],
+        "cs-fix": ["./vendor/bin/php-cs-fixer fix -v", "./vendor/bin/phpcbf src tests"],
         "metrics": ["phpmetrics --report-html=build/metrics --excluded-dirs=src/Exception src"]
     }
 }
