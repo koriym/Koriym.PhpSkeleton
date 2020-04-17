@@ -91,7 +91,6 @@ class Installer
             $composerDefinition['keywords'],
             $composerDefinition['homepage']
         );
-
         $composerDefinition['name'] = $packageName;
         $composerDefinition['authors'] = [
             [
