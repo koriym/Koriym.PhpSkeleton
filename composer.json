@@ -22,7 +22,8 @@
         "friendsofphp/php-cs-fixer": "^2.16",
         "phpmd/phpmd": "^2.8",
         "phpstan/phpstan" : "^0.12",
-        "vimeo/psalm": "^3.8"
+        "vimeo/psalm": "^3.8",
+        "phpmetrics/phpmetrics": "^2.6"
     },
     "autoload": {
         "psr-4": {
@@ -70,6 +71,7 @@
         "cs-fix": [
             "./vendor/bin/php-cs-fixer fix -v",
             "./vendor/bin/phpcbf src tests"
-        ]
+        ],
+        "metrics": ["phpmetrics --report-html=build/metrics --excluded-dirs=src/Exception src"]
     }
 }
