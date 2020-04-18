@@ -153,7 +153,7 @@ return \PhpCsFixer\Config::create()
         'protected_to_private' => true,
         'psr0' => true,
         'psr4' => true, // @Symfony:risky
-        'return_assignment' => true,
+//      'return_assignment' => true,
         'return_type_declaration' =>  ['space_before' => 'one'],
         'self_accessor' => true, // @Symfony:risky
         'semicolon_after_instruction' => true, // @Symfony
