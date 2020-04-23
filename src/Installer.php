@@ -85,12 +85,12 @@ class Installer
         unset(
             $composerDefinition['autoload']['files'],
             $composerDefinition['scripts']['pre-install-cmd'],
+            $composerDefinition['scripts']['post-install-cmd'],
             $composerDefinition['scripts']['pre-update-cmd'],
             $composerDefinition['scripts']['post-create-project-cmd'],
             $composerDefinition['keywords'],
             $composerDefinition['homepage']
         );
-
         $composerDefinition['name'] = $packageName;
         $composerDefinition['authors'] = [
             [
