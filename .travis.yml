@@ -19,7 +19,7 @@ before_install:
   - composer self-update
 
 install:
-  - composer install
+  - composer install -n
 
 script:
   - ./vendor/bin/phpunit;
