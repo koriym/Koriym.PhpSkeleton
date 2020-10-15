@@ -8,7 +8,6 @@ This repository contains a single-line command that will automatically setup for
 It will automatically install the following dependencies:
 
 * PHPUnit: run your unit tests.
-* PHP_CodeSniffer: validate your code against code convention.
 * PHP CS Fixer: automatically fix your code to match the code convention.
 * PHPMD: analyze your code to detect sub-optimal or overly complex code.
 * PHPStan: analyze your code without running it to find bugs even before you write tests for the code. 
@@ -54,7 +53,7 @@ Once installed, the project will automatically be configured so you can run thos
 
 ### tests
 
-`composer tests` run [`phpcs`](https://github.com/squizlabs/PHP_CodeSniffer), [`php-cs-fixer`](https://github.com/FriendsOfPHP/PHP-CS-Fixer), [`phpmd`](https://github.com/phpmd/phpmd), [`phpstan`](https://github.com/phpstan/phpstan),[`psalm`](https://psalm.dev) and [`phpunit`](https://github.com/sebastianbergmann/phpunit). 
+`composer tests` run [`phpcs`](https://github.com/squizlabs/PHP_CodeSniffer), [`phpmd`](https://github.com/phpmd/phpmd), [`phpstan`](https://github.com/phpstan/phpstan),[`psalm`](https://psalm.dev) and [`phpunit`](https://github.com/sebastianbergmann/phpunit). 
 
 ### coverage
 
