@@ -13,12 +13,12 @@ class __Package__Test extends TestCase
      */
     protected $__PackageVarName__;
 
-    protected function setUp() : void
+    protected function setUp(): void
     {
         $this->__PackageVarName__ = new __Package__;
     }
 
-    public function testIsInstanceOf__Package__() : void
+    public function testIsInstanceOf__Package__(): void
     {
         $actual = $this->__PackageVarName__;
         $this->assertInstanceOf(__Package__::class, $actual);
