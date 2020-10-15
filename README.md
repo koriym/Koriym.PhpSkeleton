@@ -7,12 +7,12 @@ This repository contains a single-line command that will automatically setup for
 
 It will automatically install the following dependencies:
 
-* PHPUnit: run your unit tests.
-* PHP_CodeSniffer: validate your code against code convention.
-* PHP CS Fixer: automatically fix your code to match the code convention.
-* PHPMD: analyze your code to detect sub-optimal or overly complex code.
-* PHPStan: analyze your code without running it to find bugs even before you write tests for the code. 
-* Psalm: another static analysis tool from Vimeo.
+* [PHPUnit](https://phpunit.readthedocs.io/ja/latest/): provides testing framework.
+* [PHP_CodeSniffer](https://github.com/squizlabs/PHP_CodeSniffer/wiki): detects violations of a defined set of coding standards.
+* [PHPMD](https://phpmd.org): analyze your code to detect sub-optimal or overly complex code.
+* [PHPStan](https://phpmd.org): discover bugs in your code without running it.
+* [Psalm](https://psalm.dev): - another static analysis tool from Vimeo.
+* [PHPMetrics](https://www.phpmetrics.org) provides various metrics.
 
 As well as config file for popular continuous integration tool.
  
@@ -54,16 +54,23 @@ Once installed, the project will automatically be configured so you can run thos
 
 ### tests
 
-`composer tests` run [`phpcs`](https://github.com/squizlabs/PHP_CodeSniffer), [`php-cs-fixer`](https://github.com/FriendsOfPHP/PHP-CS-Fixer), [`phpmd`](https://github.com/phpmd/phpmd), [`phpstan`](https://github.com/phpstan/phpstan),[`psalm`](https://psalm.dev) and [`phpunit`](https://github.com/sebastianbergmann/phpunit). 
+`composer tests` run `cs`, `sa`, and `test`.
 
-### coverage
+### coverage, pcov
 
-`composer coverage` builds test coverage report.
+`composer coverage` builds test coverage report.  `coverage` use XDebug, `pcov` use [pcov](https://github.com/krakjoe/pcov).
 
-### cs-fix
+### cs, cs-fix
 
-`composer cs-fix` run [`php-cs-fixer`](https://github.com/FriendsOfPHP/PHP-CS-Fixer) and [`phpcbf`](https://github.com/squizlabs/PHP_CodeSniffer/wiki/Fixing-Errors-Automatically) to fix up the PHP code to follow the coding standards. (Check only command `compposer cs` is also available.)
+`composer cs` checks coding standard. `composer cs-fix` fix up the PHP code.
 
+### sa
+
+`composer sa` run static code analysis tools. (phpstan and psalm)
+
+### metrics
+
+`composer metrics` reports code [metrics](https://www.phpmetrics.org).
 
 ## Setup continuous integration
 
