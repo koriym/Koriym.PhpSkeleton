@@ -8,14 +8,12 @@ use PHPUnit\Framework\TestCase;
 
 class __Package__Test extends TestCase
 {
-    /**
-     * @var __Package__
-     */
+    /** @var __Package__ */
     protected $__PackageVarName__;
 
     protected function setUp(): void
     {
-        $this->__PackageVarName__ = new __Package__;
+        $this->__PackageVarName__ = new __Package__();
     }
 
     public function testIsInstanceOf__Package__(): void
