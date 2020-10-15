@@ -22,7 +22,8 @@
         "phpmd/phpmd": "^2.8",
         "phpstan/phpstan" : "^0.12",
         "vimeo/psalm": "^3.8",
-        "phpmetrics/phpmetrics": "^2.6"
+        "phpmetrics/phpmetrics": "^2.6",
+        "doctrine/coding-standard": "^8.1"
     },
     "autoload": {
         "psr-4": {
