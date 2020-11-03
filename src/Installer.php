@@ -4,40 +4,48 @@ declare(strict_types=1);
 
 namespace Koriym\PhpSkeleton;
 
+use Closure;
 use Composer\Factory;
 use Composer\IO\IOInterface;
 use Composer\Json\JsonFile;
 use Composer\Script\Event;
-use stdClass;
+use Exception;
+use RecursiveDirectoryIterator;
+use RecursiveIteratorIterator;
+use SplFileInfo;
+
+use function copy;
+use function date;
+use function dirname;
+use function file_get_contents;
+use function file_put_contents;
 use function is_callable;
-use function is_string;
+use function is_writable;
+use function lcfirst;
 use function preg_match;
+use function preg_replace;
 use function shell_exec;
 use function sprintf;
+use function str_replace;
+use function strpos;
 use function strtolower;
+use function trim;
 use function ucfirst;
-use function usesCallable;
+use function unlink;
 
 final class Installer
 {
-    /**
-     * @var list<string>
-     */
+    /** @var list<string> */
     private static $packageName;
 
-    /**
-     * @var string
-     */
+    /** @var string */
     private static $name;
 
-    /**
-     * @var string
-     */
+    /** @var string */
     private static $email;
-
     private static $validator;
 
-    public static function preInstall(Event $event) : void
+    public static function preInstall(Event $event): void
     {
         $pacakageNameValidator = self::getValidator();
         $io = $event->getIO();
@@ -57,16 +65,16 @@ final class Installer
 
     private static function getValidator(): callable
     {
-        return function (string $input): string {
-            if (!preg_match("/^[A-Za-z][A-Za-z0-9]+$/", $input)) {
-                throw new \Exception();
+        return static function (string $input): string {
+            if (! preg_match('/^[A-Za-z][A-Za-z0-9]+$/', $input)) {
+                throw new Exception();
             }
 
             return ucfirst(strtolower($input));
         };
     }
 
-    public static function postInstall(Event $event) : void
+    public static function postInstall(Event $event): void
     {
         $io = $event->getIO();
         [$vendorName, $packageName] = self::$packageName;
@@ -90,17 +98,16 @@ final class Installer
         $io->write('<info>Happy quality coding!</info>');
     }
 
-    private static function ask(IOInterface $io, string $question, string $default, callable $validation = null) : string
+    private static function ask(IOInterface $io, string $question, string $default, ?callable $validation = null): string
     {
         $ask = sprintf("\n<question>%s</question>\n(<comment>%s</comment>): ", $question, $default);
-        $answer = is_callable($validation) ? (string) $io->askAndValidate($ask, $validation, null, $default) : (string) $io->ask($ask, $default);
 
-        return $answer;
+        return is_callable($validation) ? (string) $io->askAndValidate($ask, $validation, null, $default) : (string) $io->ask($ask, $default);
     }
 
-    private static function recursiveJob(string $path, callable $job) : void
+    private static function recursiveJob(string $path, callable $job): void
     {
-        $iterator = new \RecursiveIteratorIterator(new \RecursiveDirectoryIterator($path), \RecursiveIteratorIterator::SELF_FIRST);
+        $iterator = new RecursiveIteratorIterator(new RecursiveDirectoryIterator($path), RecursiveIteratorIterator::SELF_FIRST);
         foreach ($iterator as $file) {
             $job($file);
         }
@@ -109,7 +116,7 @@ final class Installer
     /**
      * @return array<string, string|array<string, string>>
      */
-    private static function getDefinition(string $vendor, string $package, string $packageName, JsonFile $json) : array
+    private static function getDefinition(string $vendor, string $package, string $packageName, JsonFile $json): array
     {
         $composerDefinition = $json->read();
         unset(
@@ -126,8 +133,8 @@ final class Installer
         $composerDefinition['authors'] = [
             [
                 'name' => self::$name,
-                'email' => self::$email
-            ]
+                'email' => self::$email,
+            ],
         ];
         $composerDefinition['description'] = '';
         $composerDefinition['autoload']['psr-4'] = ["{$vendor}\\{$package}\\" => 'src/'];
@@ -135,14 +142,15 @@ final class Installer
         return $composerDefinition;
     }
 
-    private static function rename(string $vendor, string $package) : \Closure
+    private static function rename(string $vendor, string $package): Closure
     {
-        $jobRename = function (\SplFileInfo $file) use ($vendor, $package) : void {
+        return static function (SplFileInfo $file) use ($vendor, $package): void {
             $fileName = $file->getFilename();
             $filePath = (string) $file;
             if ($file->isDir() || strpos($fileName, '.') === 0 || ! is_writable($filePath)) {
                 return;
             }
+
             $contents = (string) file_get_contents($filePath);
             $contents = str_replace('__Vendor__', "{$vendor}", $contents);
             $contents = str_replace('__Package__', "{$package}", $contents);
@@ -151,23 +159,21 @@ final class Installer
             $contents = str_replace('__PackageVarName__', lcfirst($package), $contents);
             file_put_contents($filePath, $contents);
         };
-
-        return $jobRename;
     }
 
-    private static function camel2dashed(string $name) : string
+    private static function camel2dashed(string $name): string
     {
         return strtolower((string) preg_replace('/([a-zA-Z])(?=[A-Z])/', '$1-', $name));
     }
 
-    private static function getUserName() : string
+    private static function getUserName(): string
     {
         $author = shell_exec('git config --global user.name || git config user.name');
 
         return $author ? trim($author) : '';
     }
 
-    private static function getUserEmail() : string
+    private static function getUserEmail(): string
     {
         $email = shell_exec('git config --global user.email || git config user.email');
 
