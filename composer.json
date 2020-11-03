@@ -21,7 +21,7 @@
         "squizlabs/php_codesniffer": "^3.5",
         "phpmd/phpmd": "^2.9",
         "phpstan/phpstan" : "^0.12",
-        "vimeo/psalm": "^3.17",
+        "vimeo/psalm": "^4.1",
         "phpmetrics/phpmetrics": "^2.7",
         "doctrine/coding-standard": "^8.1",
         "composer/composer": "^2.0"
