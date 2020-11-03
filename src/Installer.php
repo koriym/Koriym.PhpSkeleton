@@ -9,6 +9,7 @@ use Composer\IO\IOInterface;
 use Composer\Json\JsonFile;
 use Composer\Script\Event;
 use function is_string;
+use function sprintf;
 
 final class Installer
 {
@@ -30,9 +31,9 @@ final class Installer
     public static function preInstall(Event $event) : void
     {
         $io = $event->getIO();
-        $vendorClass = self::ask($io, 'What is the vendor name ?', 'MyVendor');
-        $packageClass = self::ask($io, 'What is the package name ?', 'MyPackage');
-        self::$name = self::ask($io, 'What is your name ?', self::getUserName());
+        $vendorClass = self::ask($io, 'What is the vendor name?', 'MyVendor');
+        $packageClass = self::ask($io, 'What is the package name?', 'MyPackage');
+        self::$name = self::ask($io, 'What is your name?', self::getUserName());
         self::$email = self::ask($io, 'What is your email address ?', self::getUserEmail());
         $packageName = sprintf('%s/%s', self::camel2dashed($vendorClass), self::camel2dashed($packageClass));
         $json = new JsonFile(Factory::getComposerFile());
@@ -66,9 +67,10 @@ final class Installer
 
     private static function ask(IOInterface $io, string $question, string $default) : string
     {
-        $ask = sprintf("\n<question>%s</question>\n", $question);
+        $ask = sprintf("\n<question>%s</question>\n(<comment>%s</comment>): ", $question, $default);
+        $answer =  (string) $io->ask($ask, $default);
 
-        return (string) $io->ask($ask, $default);
+        return $answer;
     }
 
     private static function recursiveJob(string $path, callable $job) : void
