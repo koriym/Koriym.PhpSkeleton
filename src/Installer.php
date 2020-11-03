@@ -9,6 +9,7 @@ use Composer\IO\IOInterface;
 use Composer\Json\JsonFile;
 use Composer\Script\Event;
 use function is_string;
+use function shell_exec;
 use function sprintf;
 
 final class Installer
@@ -62,6 +63,10 @@ final class Installer
         unlink($skeletonPhp);
         unlink($skeletoTest);
         unlink(__FILE__);
+        // run tools
+        shell_exec(dirname(__DIR__) . '/vendor/bin/phpcbf');
+        shell_exec(dirname(__DIR__) . '/vendor/bin/composer dump-autoload --quiet');
+        shell_exec(dirname(__DIR__) . '/vendor/bin/psalm --init > /dev/null');
         $io->write("<info>{$vendorName}/{$packageName} class files created.\n</info>");
     }
 

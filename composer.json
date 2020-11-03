@@ -44,17 +44,13 @@
             "Koriym\\PhpSkeleton\\Installer::preInstall"
         ],
         "post-install-cmd": [
-            "Koriym\\PhpSkeleton\\Installer::postInstall",
-            "composer update",
-            "./vendor/bin/psalm --init"
+            "Koriym\\PhpSkeleton\\Installer::postInstall"
         ],
         "pre-update-cmd": [
             "Koriym\\PhpSkeleton\\Installer::preInstall"
         ],
         "post-create-project-cmd": [
-            "Koriym\\PhpSkeleton\\Installer::postInstall",
-            "composer update",
-            "./vendor/bin/psalm --init"
+            "Koriym\\PhpSkeleton\\Installer::postInstall"
         ],
         "test": ["vendor/bin/phpunit"],
         "tests": ["@cs", "@sa", "@test"],
