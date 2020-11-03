@@ -8,11 +8,12 @@ use Composer\Factory;
 use Composer\IO\IOInterface;
 use Composer\Json\JsonFile;
 use Composer\Script\Event;
+use function is_string;
 
-class Installer
+final class Installer
 {
     /**
-     * @var array
+     * @var list<string>
      */
     private static $packageName;
 
@@ -39,13 +40,15 @@ class Installer
         self::$packageName = [$vendorClass, $packageClass];
         // Update composer definition
         $json->write($composerDefinition);
-        $io->write("<info>composer.json for {$composerDefinition['name']} is created.\n</info>");
+        assert(is_string($composerDefinition['name']));
+        $name = $composerDefinition['name'];
+        $io->write("<info>composer.json for {$name} is created.\n</info>");
     }
 
-    public static function postInstall(Event $event = null) : void
+    public static function postInstall(Event $event) : void
     {
         $io = $event->getIO();
-        list($vendorName, $packageName) = self::$packageName;
+        [$vendorName, $packageName] = self::$packageName;
         $skeletonRoot = dirname(__DIR__);
         self::recursiveJob("{$skeletonRoot}", self::rename($vendorName, $packageName));
         //mv
@@ -63,12 +66,9 @@ class Installer
 
     private static function ask(IOInterface $io, string $question, string $default) : string
     {
-        $ask = [
-            sprintf("\n<question>%s</question>\n", $question),
-            sprintf("\n(<comment>%s</comment>):", $default)
-        ];
+        $ask = sprintf("\n<question>%s</question>\n", $question);
 
-        return $io->ask($ask, $default);
+        return (string) $io->ask($ask, $default);
     }
 
     private static function recursiveJob(string $path, callable $job) : void
@@ -79,6 +79,9 @@ class Installer
         }
     }
 
+    /**
+     * @return array<string, string|array<string, string>>
+     */
     private static function getDefinition(string $vendor, string $package, string $packageName, JsonFile $json) : array
     {
         $composerDefinition = $json->read();
@@ -89,7 +92,8 @@ class Installer
             $composerDefinition['scripts']['pre-update-cmd'],
             $composerDefinition['scripts']['post-create-project-cmd'],
             $composerDefinition['keywords'],
-            $composerDefinition['homepage']
+            $composerDefinition['homepage'],
+            $composerDefinition['require-dev']['composer/composer']
         );
         $composerDefinition['name'] = $packageName;
         $composerDefinition['authors'] = [
@@ -112,7 +116,7 @@ class Installer
             if ($file->isDir() || strpos($fileName, '.') === 0 || ! is_writable($filePath)) {
                 return;
             }
-            $contents = file_get_contents($filePath);
+            $contents = (string) file_get_contents($filePath);
             $contents = str_replace('__Vendor__', "{$vendor}", $contents);
             $contents = str_replace('__Package__', "{$package}", $contents);
             $contents = str_replace('__year__', date('Y'), $contents);
@@ -126,7 +130,7 @@ class Installer
 
     private static function camel2dashed(string $name) : string
     {
-        return strtolower(preg_replace('/([a-zA-Z])(?=[A-Z])/', '$1-', $name));
+        return strtolower((string) preg_replace('/([a-zA-Z])(?=[A-Z])/', '$1-', $name));
     }
 
     private static function getUserName() : string
