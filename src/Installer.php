@@ -8,9 +8,15 @@ use Composer\Factory;
 use Composer\IO\IOInterface;
 use Composer\Json\JsonFile;
 use Composer\Script\Event;
+use stdClass;
+use function is_callable;
 use function is_string;
+use function preg_match;
 use function shell_exec;
 use function sprintf;
+use function strtolower;
+use function ucfirst;
+use function usesCallable;
 
 final class Installer
 {
@@ -29,11 +35,16 @@ final class Installer
      */
     private static $email;
 
+    private static $validator;
+
     public static function preInstall(Event $event) : void
     {
+        $pacakageNameValidator = self::getValidator();
         $io = $event->getIO();
-        $vendorClass = self::ask($io, 'What is the vendor name?', 'MyVendor');
-        $packageClass = self::ask($io, 'What is the package name?', 'MyPackage');
+        $vendorClass = self::ask($io, 'What is the vendor name?', 'MyVendor', $pacakageNameValidator);
+        $io->write(sprintf('<info>%s</info>', $vendorClass));
+        $packageClass = self::ask($io, 'What is the package name?', 'MyPackage', $pacakageNameValidator);
+        $io->write(sprintf('<info>%s</info>', $packageClass));
         self::$name = self::ask($io, 'What is your name?', self::getUserName());
         self::$email = self::ask($io, 'What is your email address ?', self::getUserEmail());
         $packageName = sprintf('%s/%s', self::camel2dashed($vendorClass), self::camel2dashed($packageClass));
@@ -42,6 +53,17 @@ final class Installer
         self::$packageName = [$vendorClass, $packageClass];
         // Update composer definition
         $json->write($composerDefinition);
+    }
+
+    private static function getValidator(): callable
+    {
+        return function (string $input): string {
+            if (!preg_match("/^[A-Za-z][A-Za-z0-9]+$/", $input)) {
+                throw new \Exception();
+            }
+
+            return ucfirst(strtolower($input));
+        };
     }
 
     public static function postInstall(Event $event) : void
@@ -68,10 +90,10 @@ final class Installer
         $io->write('<info>Happy quality coding!</info>');
     }
 
-    private static function ask(IOInterface $io, string $question, string $default) : string
+    private static function ask(IOInterface $io, string $question, string $default, callable $validation = null) : string
     {
         $ask = sprintf("\n<question>%s</question>\n(<comment>%s</comment>): ", $question, $default);
-        $answer =  (string) $io->ask($ask, $default);
+        $answer = is_callable($validation) ? (string) $io->askAndValidate($ask, $validation, null, $default) : (string) $io->ask($ask, $default);
 
         return $answer;
     }
