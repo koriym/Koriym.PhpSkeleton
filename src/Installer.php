@@ -42,9 +42,6 @@ final class Installer
         self::$packageName = [$vendorClass, $packageClass];
         // Update composer definition
         $json->write($composerDefinition);
-        assert(is_string($composerDefinition['name']));
-        $name = $composerDefinition['name'];
-        $io->write("<info>composer.json for {$name} is created.\n</info>");
     }
 
     public static function postInstall(Event $event) : void
@@ -67,7 +64,8 @@ final class Installer
         shell_exec(dirname(__DIR__) . '/vendor/bin/phpcbf');
         shell_exec(dirname(__DIR__) . '/vendor/bin/composer dump-autoload --quiet');
         shell_exec(dirname(__DIR__) . '/vendor/bin/psalm --init > /dev/null');
-        $io->write("<info>{$vendorName}/{$packageName} class files created.\n</info>");
+        $io->write(sprintf('<info>%s/%s package created.</info>', self::camel2dashed($vendorName), self::camel2dashed($packageName)));
+        $io->write('<info>Happy quality coding!</info>');
     }
 
     private static function ask(IOInterface $io, string $question, string $default) : string
