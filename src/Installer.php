@@ -68,7 +68,7 @@ final class Installer
                 throw new Exception();
             }
 
-            return ucfirst(strtolower($input));
+            return ucfirst($input);
         };
     }
 
