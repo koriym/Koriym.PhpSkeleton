@@ -54,15 +54,15 @@ jobs:
       php: 7.4
       install: composer global require --dev phpstan/phpstan ^0.12 vimeo/psalm ^3.11 phpmetrics/phpmetrics ^2.6 maglnet/composer-require-checker ^2.0
       script:
-        - ~/.composer/vendor/bin/phpstan analyse -c phpstan.neon --no-progress --no-interaction
-        - ~/.composer/vendor/bin/psalm --show-info=false --shepherd
-        - ~/.composer/vendor/bin/psalm -c psalm.compiler.xml --show-info=true
-        - ~/.composer/vendor/bin/phpmetrics --exclude=Exception src
-        - ~/.composer/vendor/bin/composer-require-checker check ./composer.json
+        - ~composer global exec -v -- phpstan analyse -c phpstan.neon --no-progress --no-interaction
+        - ~composer global exec -v -- psalm --show-info=false --shepherd
+        - ~composer global exec -v -- psalm -c psalm.compiler.xml --show-info=true
+        - ~composer global exec -v -- phpmetrics --exclude=Exception src
+        - ~composer global exec -v -- composer-require-checker check ./composer.json
 
     - stage: Code Quality
       name: Coding standards
       php: 7.4
       install: composer global require --dev doctrine/coding-standard ^8.1
       script:
-        - ~/.composer/vendor/bin/phpcs --standard=./phpcs.xml src tests
+        - ~composer global exec -v -- phpcs --standard=./phpcs.xml src tests
