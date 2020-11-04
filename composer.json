@@ -61,5 +61,16 @@
         "sa": ["phpstan analyse -c phpstan.neon", "psalm --show-info=true"],
         "metrics": ["phpmetrics --report-html=build/metrics --excluded-dirs=src/Exception src"],
         "build": ["@cs", "@sa", "@pcov","@metrics"]
+    },
+    "scripts-descriptions": {
+        "test": "Run unit tests",
+        "tests": "Run tests and quality checks",
+        "coverage": "Generate test coverage report",
+        "pcov": "Generate test coverage report (pcov)",
+        "cs": "Check the coding style",
+        "cs-fix": "Fix the coding style",
+        "sa": "Run static analysis",
+        "metrics": "Build metrics report",
+        "build": "Build project"
     }
 }
