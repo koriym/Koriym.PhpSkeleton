@@ -21,7 +21,7 @@
         "squizlabs/php_codesniffer": "^3.5",
         "phpmd/phpmd": "^2.9",
         "phpstan/phpstan" : "^0.12",
-        "vimeo/psalm": "^3.17",
+        "vimeo/psalm": "^4.1",
         "phpmetrics/phpmetrics": "^2.7",
         "doctrine/coding-standard": "^8.1",
         "composer/composer": "^2.0"
@@ -44,17 +44,13 @@
             "Koriym\\PhpSkeleton\\Installer::preInstall"
         ],
         "post-install-cmd": [
-            "Koriym\\PhpSkeleton\\Installer::postInstall",
-            "composer update",
-            "./vendor/bin/psalm --init"
+            "Koriym\\PhpSkeleton\\Installer::postInstall"
         ],
         "pre-update-cmd": [
             "Koriym\\PhpSkeleton\\Installer::preInstall"
         ],
         "post-create-project-cmd": [
-            "Koriym\\PhpSkeleton\\Installer::postInstall",
-            "composer update",
-            "./vendor/bin/psalm --init"
+            "Koriym\\PhpSkeleton\\Installer::postInstall"
         ],
         "test": ["vendor/bin/phpunit"],
         "tests": ["@cs", "@sa", "@test"],
@@ -65,5 +61,16 @@
         "sa": ["phpstan analyse -c phpstan.neon", "psalm --show-info=true"],
         "metrics": ["phpmetrics --report-html=build/metrics --excluded-dirs=src/Exception src"],
         "build": ["@cs", "@sa", "@pcov","@metrics"]
+    },
+    "scripts-descriptions": {
+        "test": "Run unit tests",
+        "tests": "Run tests and quality checks",
+        "coverage": "Generate test coverage report",
+        "pcov": "Generate test coverage report (pcov)",
+        "cs": "Check the coding style",
+        "cs-fix": "Fix the coding style",
+        "sa": "Run static analysis",
+        "metrics": "Build metrics report",
+        "build": "Build project"
     }
 }
