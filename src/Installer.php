@@ -32,18 +32,21 @@ use function strtolower;
 use function trim;
 use function ucfirst;
 use function unlink;
+use function var_dump;
 
 final class Installer
 {
     /** @var list<string> */
+    private static $appName;
+
+    /** @var string */
     private static $packageName;
 
     /** @var string */
-    private static $name;
+    private static $userName;
 
     /** @var string */
-    private static $email;
-    private static $validator;
+    private static $userEmail;
 
     public static function preInstall(Event $event): void
     {
@@ -51,12 +54,12 @@ final class Installer
         $io = $event->getIO();
         $vendorClass = self::ask($io, 'What is the vendor name?', 'MyVendor', $pacakageNameValidator);
         $packageClass = self::ask($io, 'What is the package name?', 'MyPackage', $pacakageNameValidator);
-        self::$name = self::ask($io, 'What is your name?', self::getUserName());
-        self::$email = self::ask($io, 'What is your email address ?', self::getUserEmail());
-        $packageName = sprintf('%s/%s', self::camel2dashed($vendorClass), self::camel2dashed($packageClass));
+        self::$userName = self::ask($io, 'What is your name?', self::getUserName());
+        self::$userEmail = self::ask($io, 'What is your email address ?', self::getUserEmail());
+        self::$packageName = sprintf('%s/%s', self::camel2dashed($vendorClass), self::camel2dashed($packageClass));
         $json = new JsonFile(Factory::getComposerFile());
-        $composerDefinition = self::getDefinition($vendorClass, $packageClass, $packageName, $json);
-        self::$packageName = [$vendorClass, $packageClass];
+        $composerDefinition = self::getDefinition($vendorClass, $packageClass, self::$packageName, $json);
+        self::$appName = [$vendorClass, $packageClass];
         // Update composer definition
         $json->write($composerDefinition);
     }
@@ -75,7 +78,7 @@ final class Installer
     public static function postInstall(Event $event): void
     {
         $io = $event->getIO();
-        [$vendorName, $packageName] = self::$packageName;
+        [$vendorName, $packageName] = self::$appName;
         $skeletonRoot = dirname(__DIR__);
         self::recursiveJob("{$skeletonRoot}", self::rename($vendorName, $packageName));
         //mv
@@ -92,7 +95,9 @@ final class Installer
         shell_exec(dirname(__DIR__) . '/vendor/bin/phpcbf');
         shell_exec(dirname(__DIR__) . '/vendor/bin/composer dump-autoload --quiet');
         shell_exec(dirname(__DIR__) . '/vendor/bin/psalm --init > /dev/null');
-        $io->write(sprintf('<info>%s/%s package created.</info>', self::camel2dashed($vendorName), self::camel2dashed($packageName)));
+        // README
+        rename($skeletonRoot . '/README.proj.md', $skeletonRoot . '/README.md');
+        $io->write(sprintf('<info>%s package created.</info>', self::$packageName));
         $io->write('<info>Happy quality coding!</info>');
     }
 
@@ -132,8 +137,8 @@ final class Installer
         $composerDefinition['name'] = $packageName;
         $composerDefinition['authors'] = [
             [
-                'name' => self::$name,
-                'email' => self::$email,
+                'name' => self::$userName,
+                'email' => self::$userEmail,
             ],
         ];
         $composerDefinition['description'] = '';
@@ -152,11 +157,9 @@ final class Installer
             }
 
             $contents = (string) file_get_contents($filePath);
-            $contents = str_replace('__Vendor__', "{$vendor}", $contents);
-            $contents = str_replace('__Package__', "{$package}", $contents);
-            $contents = str_replace('__year__', date('Y'), $contents);
-            $contents = str_replace('__name__', self::$name, $contents);
-            $contents = str_replace('__PackageVarName__', lcfirst($package), $contents);
+            $search = ['__Vendor__', '__Package__', '__year__', '__name__', '__PackageVarName__', '_package_name_'];
+            $replace = [$vendor, $package, date('Y'), self::$userName, lcfirst($package), self::$packageName];
+            $contents = str_replace($search, $replace, $contents);
             file_put_contents($filePath, $contents);
         };
     }
