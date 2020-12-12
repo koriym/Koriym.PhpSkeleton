@@ -24,13 +24,6 @@ To create your project, enter the following command in your console.
 composer create-project koriym/php-skeleton <project-path>
 ```
 
-For composer1.x user, use v1.1.5 or prior when you have trouble with latest version.
-
-```
-composer create-project koriym/php-skeleton:1.1.5 <project-path>
-```
-
-
 You will be asked a few questions to configure the project:
 
 ```
