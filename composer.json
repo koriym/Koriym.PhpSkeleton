@@ -54,7 +54,7 @@
         ],
         "test": ["vendor/bin/phpunit"],
         "tests": ["@cs", "@sa", "@test"],
-        "coverage": ["php -dzend_extension=xdebug.so ./vendor/bin/phpunit --coverage-text --coverage-html=build/coverage"],
+        "coverage": ["php -dzend_extension=xdebug.so -dxdebug.mode=coverage ./vendor/bin/phpunit --coverage-text --coverage-html=build/coverage"],
         "pcov": ["php -dextension=pcov.so -d pcov.enabled=1 ./vendor/bin/phpunit --coverage-text --coverage-html=build/coverage  --coverage-clover=coverage.xml"],
         "cs": ["./vendor/bin/phpcs --standard=phpcs.xml src tests"],
         "cs-fix": ["./vendor/bin/phpcbf src tests"],
