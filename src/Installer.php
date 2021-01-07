@@ -97,6 +97,7 @@ final class Installer
         shell_exec(dirname(__DIR__) . '/vendor/bin/psalm --init > /dev/null');
         // README
         rename($skeletonRoot . '/README.proj.md', $skeletonRoot . '/README.md');
+        rename($skeletonRoot . '/.gitattributes.txt', $skeletonRoot . '/.gitattributes');
         $io->write(sprintf('<info>%s package created.</info>', self::$packageName));
         $io->write('<info>Happy quality coding!</info>');
     }
