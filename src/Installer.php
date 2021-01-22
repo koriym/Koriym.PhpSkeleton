@@ -144,6 +144,8 @@ final class Installer
         ];
         $composerDefinition['description'] = '';
         $composerDefinition['autoload']['psr-4'] = ["{$vendor}\\{$package}\\" => 'src/'];
+        $composerDefinition['scripts']['post-install-cmd'] = '@composer bin all install --ansi';
+        $composerDefinition['scripts']['post-update-cmd'] = '@composer bin all update --ansi';
 
         return $composerDefinition;
     }
