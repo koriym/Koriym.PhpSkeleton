@@ -22,6 +22,7 @@ use function file_put_contents;
 use function is_callable;
 use function is_writable;
 use function lcfirst;
+use function passthru;
 use function preg_match;
 use function preg_replace;
 use function shell_exec;
@@ -91,6 +92,8 @@ final class Installer
         unlink($skeletonPhp);
         unlink($skeletoTest);
         unlink(__FILE__);
+        // install QA tools
+        passthru(dirname(__DIR__) . '/vendor/bin/composer install');
         // run tools
         shell_exec(dirname(__DIR__) . '/vendor/bin/phpcbf');
         shell_exec(dirname(__DIR__) . '/vendor/bin/composer dump-autoload --quiet');
