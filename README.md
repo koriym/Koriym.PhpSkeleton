@@ -73,5 +73,4 @@ Once installed, the project will automatically be configured so you can run thos
 
 ## Setup continuous integration
 
- * [Travis CI](https://docs.travis-ci.com/user/getting-started)
  * [Scrutinizer](https://scrutinizer-ci.com/docs/)
