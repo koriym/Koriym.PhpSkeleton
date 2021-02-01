@@ -70,7 +70,3 @@ Once installed, the project will automatically be configured so you can run thos
 ### metrics
 
 `composer metrics` reports code [metrics](https://www.phpmetrics.org).
-
-## Setup continuous integration
-
- * [Scrutinizer](https://scrutinizer-ci.com/docs/)
