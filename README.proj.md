@@ -11,4 +11,3 @@
     composer cs-fix            // Fix the coding style
     composer sa                // Run static analysys tools
     composer run-script --list // List all commands
-    
