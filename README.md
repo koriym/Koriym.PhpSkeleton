@@ -45,7 +45,7 @@ What is your email address ?
 
 ## Composer Commands
 
-Once installed, the project will automatically be configured so you can run those commands in the root of your application:
+Once installed, the project will automatically be configured, so you can run those commands in the root of your application:
 
 ### test
 
