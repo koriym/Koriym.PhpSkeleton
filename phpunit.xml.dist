@@ -2,7 +2,9 @@
 <phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/9.3/phpunit.xsd"
   bootstrap="vendor/autoload.php">
-  <coverage processUncoveredFiles="true">
+  <coverage cacheDirectory="./build/cache/coverage"
+    processUncoveredFiles="true"
+    pathCoverage="true">
     <include>
       <directory suffix=".php">src</directory>
     </include>
