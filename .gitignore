@@ -2,6 +2,7 @@
 /vendor-bin/*/vendor/
 /build/
 /composer.lock
+/vendor-bin/*/composer.lock
 /phpunit.xml
 /.phpunit.result.cache
 /.phpcs-cache
