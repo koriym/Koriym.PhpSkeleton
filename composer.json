@@ -20,13 +20,13 @@
     },
     "autoload": {
         "psr-4": {
-            "Koriym\\PhpSkeleton\\": "src/"
+            "Koriym\\PhpSkeleton\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
             "__Vendor__\\__Package__\\": [
-                "tests/",
+                "tests",
                 "tests/Fake"
             ]
         }
