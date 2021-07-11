@@ -1,18 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:noNamespaceSchemaLocation="./vendor/phpunit/phpunit/phpunit.xsd"
-         bootstrap="vendor/autoload.php">
+<phpunit
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="./vendor/phpunit/phpunit/phpunit.xsd"
+    bootstrap="vendor/autoload.php"
+>
     <testsuites>
-        <testsuite name="all">
+        <testsuite name="Koriym.PhpSkeleton test suite">
             <directory>tests</directory>
         </testsuite>
     </testsuites>
-    <php>
-        <ini name="error_reporting" value="-1" />
-    </php>
-    <filter>
-        <whitelist processUncoveredFilesFromWhitelist="true">
+    <coverage processUncoveredFiles="true">
+        <include>
             <directory suffix=".php">src</directory>
-        </whitelist>
-    </filter>
+        </include>
+    </coverage>
+    <php>
+        <ini name="error_reporting" value="-1"/>
+    </php>
 </phpunit>
