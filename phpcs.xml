@@ -1,16 +1,15 @@
 <?xml version="1.0"?>
 <ruleset
-        name=""
-        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xsi:noNamespaceSchemaLocation="./vendor-bin/tools/vendor/squizlabs/php_codesniffer/phpcs.xsd">
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="./vendor-bin/tools/vendor/squizlabs/php_codesniffer/phpcs.xsd">
 
     <arg name="basepath" value="."/>
     <arg name="extensions" value="php"/>
     <arg name="parallel" value="80"/>
     <arg name="cache" value=".phpcs-cache"/>
 
-    <!-- Compatibility with PHP 7.2.0 -->
-    <config name="php_version" value="70200"/>
+    <!-- PHP Compatibility -->
+    <config name="php_version" value="70300"/>
 
     <!-- Ignore warnings, show progress of the run and show sniff names -->
     <arg value="nps"/>
@@ -24,9 +23,8 @@
     <!-- PSR12 Coding Standard -->
     <rule ref="PSR12"/>
 
-    <!-- Doctrine Coding Standard -->
+    <!-- Based on Doctrine Coding Standard -->
     <rule ref="Doctrine">
-
         <!-- Exclude Rules -->
         <exclude name="Generic.Formatting.MultipleStatementAlignment.NotSame"/>
         <exclude name="Squiz.Strings.DoubleQuoteUsage.ContainsVar"/>
@@ -37,14 +35,10 @@
         <exclude name="SlevomatCodingStandard.Commenting.UselessInheritDocComment.UselessInheritDocComment"/>
         <exclude name="SlevomatCodingStandard.TypeHints.PropertyTypeHint.MissingNativeTypeHint"/>
         <exclude name="SlevomatCodingStandard.ControlStructures.EarlyExit.EarlyExitNotUsed"/>
+        <exclude name="SlevomatCodingStandard.PHP.RequireExplicitAssertion.RequiredExplicitAssertion"/>
+        <exclude name="SlevomatCodingStandard.TypeHints.ReturnTypeHint.MissingNativeTypeHint" />
     </rule>
-
     <!-- Additional Rules -->
-    <rule ref="SlevomatCodingStandard.Namespaces.UnusedUses">
-        <properties>
-            <property name="searchAnnotations" value="true"/>
-        </properties>
-    </rule>
     <rule ref="SlevomatCodingStandard.Commenting.DocCommentSpacing">
         <properties>
             <property name="annotationsGroups" type="array">
@@ -59,6 +53,11 @@
             <property name="minLinesCountBeforeWithComment" value="1"/>
             <property name="maxLinesCountBeforeWithComment" value="1"/>
             <property name="maxLinesCountBeforeWithoutComment" value="0"/>
+        </properties>
+    </rule>
+    <rule ref="SlevomatCodingStandard.Namespaces.UnusedUses">
+        <properties>
+            <property name="searchAnnotations" value="true"/>
         </properties>
     </rule>
 </ruleset>
