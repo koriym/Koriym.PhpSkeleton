@@ -55,10 +55,9 @@ Once installed, the project will automatically be configured, so you can run tho
 
 `composer tests` run `cs`, `sa`, and `test`.
 
-### coverage, pcov
+### coverage, phpdbg, pcov
 
-`composer coverage` builds test coverage report.  `coverage` use XDebug, `pcov` use [pcov](https://github.com/krakjoe/pcov).
-
+`composer coverage` builds test coverage report.  `coverage` use [XDebug](https://xdebug.org/), `phpdbg` use [phpdbg](https://www.php.net/manual/en/book.phpdbg.php). `pcov` use [pcov](https://github.com/krakjoe/pcov).
 ### cs, cs-fix
 
 `composer cs` checks coding standard. `composer cs-fix` fix up the PHP code.
@@ -70,3 +69,7 @@ Once installed, the project will automatically be configured, so you can run tho
 ### metrics
 
 `composer metrics` reports code [metrics](https://www.phpmetrics.org).
+
+### build
+
+`composer build` builds all reports.
