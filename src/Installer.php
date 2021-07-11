@@ -13,7 +13,6 @@ use Exception;
 use RecursiveDirectoryIterator;
 use RecursiveIteratorIterator;
 use SplFileInfo;
-
 use function copy;
 use function date;
 use function dirname;
@@ -33,7 +32,6 @@ use function strtolower;
 use function trim;
 use function ucfirst;
 use function unlink;
-use function var_dump;
 
 final class Installer
 {
@@ -81,7 +79,7 @@ final class Installer
         $io = $event->getIO();
         [$vendorName, $packageName] = self::$appName;
         $skeletonRoot = dirname(__DIR__);
-        self::recursiveJob("{$skeletonRoot}", self::rename($vendorName, $packageName));
+        self::recursiveJob($skeletonRoot, self::rename($vendorName, $packageName));
         //mv
         $skeletonPhp = __DIR__ . '/Skeleton.php';
         copy($skeletonPhp, "{$skeletonRoot}/src/{$packageName}.php");

@@ -5,7 +5,7 @@
     bootstrap="vendor/autoload.php"
 >
     <testsuites>
-        <testsuite name="Koriym.PhpSkeleton test suite">
+        <testsuite name="__Vendor__.__Package__ test suite">
             <directory>tests</directory>
         </testsuite>
     </testsuites>
