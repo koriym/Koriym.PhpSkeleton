@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/9.3/phpunit.xsd"
-  bootstrap="vendor/autoload.php">
-  <coverage cacheDirectory=".phpunit.cache/code-coverage"
-    processUncoveredFiles="true"
-    pathCoverage="true">
-    <include>
-      <directory suffix=".php">src</directory>
-    </include>
-  </coverage>
-  <testsuites>
-    <testsuite name="all">
-      <directory>tests</directory>
-    </testsuite>
-  </testsuites>
-  <php>
-    <ini name="error_reporting" value="-1"/>
-  </php>
+<phpunit
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="./vendor/phpunit/phpunit/phpunit.xsd"
+    bootstrap="vendor/autoload.php"
+>
+    <testsuites>
+        <testsuite name="__Vendor__.__Package__ test suite">
+            <directory>tests</directory>
+        </testsuite>
+    </testsuites>
+    <coverage processUncoveredFiles="true">
+        <include>
+            <directory suffix=".php">src</directory>
+        </include>
+    </coverage>
+    <php>
+        <ini name="error_reporting" value="-1"/>
+    </php>
 </phpunit>
