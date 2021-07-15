@@ -9,7 +9,9 @@
             <directory>tests</directory>
         </testsuite>
     </testsuites>
-    <coverage processUncoveredFiles="true">
+    <coverage cacheDirectory=".phpunit.cache/code-coverage"
+        processUncoveredFiles="true"
+        pathCoverage="false">
         <include>
             <directory suffix=".php">src</directory>
         </include>
