@@ -2,6 +2,7 @@
 
 # Exclude build/test files from archive
 /tests            export-ignore
+/vendor-bin       export-ignore
 /.editorconfig    export-ignore
 /.gitattributes   export-ignore
 /.gitignore       export-ignore
