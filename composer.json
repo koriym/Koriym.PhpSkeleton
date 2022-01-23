@@ -45,7 +45,7 @@
         "cs-fix": "./vendor/bin/phpcbf src tests",
         "metrics": "./vendor/bin/phpmetrics --report-html=build/metrics --exclude=Exception src",
         "clean": ["./vendor/bin/phpstan clear-result-cache", "./vendor/bin/psalm --clear-cache"],
-        "sa": ["./vendor/bin/phpstan analyse -c phpstan.neon", "psalm --show-info=true"],
+        "sa": ["./vendor/bin/phpstan analyse -c phpstan.neon", "./vendor/bin/psalm --show-info=true"],
         "tests": ["@cs", "@sa", "@test"],
         "build": ["@clean", "@cs", "@sa", "@pcov", "@metrics"]
     },
