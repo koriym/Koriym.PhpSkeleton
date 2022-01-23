@@ -61,5 +61,10 @@
         "metrics": "Build metrics report",
         "tests": "Run tests and quality checks",
         "build": "Build project"
+    },
+    "config": {
+        "allow-plugins": {
+            "bamarni/composer-bin-plugin": true
+        }
     }
 }
