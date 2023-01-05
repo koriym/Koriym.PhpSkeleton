@@ -1,7 +1,7 @@
 {
     "require-dev": {
         "doctrine/coding-standard": "^11.0",
-        "phpmd/phpmd": "^2.9",
+        "phpmd/phpmd": "^2.13",
         "phpmetrics/phpmetrics": "^2.7",
         "phpstan/phpstan": "^1.1",
         "psalm/plugin-phpunit": "^0.13",
