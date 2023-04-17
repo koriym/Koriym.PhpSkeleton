@@ -13,6 +13,7 @@ use Exception;
 use RecursiveDirectoryIterator;
 use RecursiveIteratorIterator;
 use SplFileInfo;
+
 use function copy;
 use function date;
 use function dirname;
@@ -24,6 +25,7 @@ use function lcfirst;
 use function passthru;
 use function preg_match;
 use function preg_replace;
+use function rename;
 use function shell_exec;
 use function sprintf;
 use function str_replace;
@@ -103,7 +105,7 @@ final class Installer
         $io->write('<info>Happy quality coding!</info>');
     }
 
-    private static function ask(IOInterface $io, string $question, string $default, ?callable $validation = null): string
+    private static function ask(IOInterface $io, string $question, string $default, callable|null $validation = null): string
     {
         $ask = sprintf("\n<question>%s</question>\n(<comment>%s</comment>): ", $question, $default);
         $answer = is_callable($validation) ? (string) $io->askAndValidate($ask, $validation, null, $default) : (string) $io->ask($ask, $default);
@@ -120,9 +122,7 @@ final class Installer
         }
     }
 
-    /**
-     * @return array<string, string|array<string, string>>
-     */
+    /** @return array<string, string|array<string, string>> */
     private static function getDefinition(string $vendor, string $package, string $packageName, JsonFile $json): array
     {
         $composerDefinition = $json->read();
@@ -134,7 +134,7 @@ final class Installer
             $composerDefinition['scripts']['post-create-project-cmd'],
             $composerDefinition['keywords'],
             $composerDefinition['homepage'],
-            $composerDefinition['require-dev']['composer/composer']
+            $composerDefinition['require-dev']['composer/composer'],
         );
         $composerDefinition['name'] = $packageName;
         $composerDefinition['authors'] = [
