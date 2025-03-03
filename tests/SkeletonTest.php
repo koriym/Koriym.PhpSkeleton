@@ -6,7 +6,7 @@ namespace __Vendor__\__Package__;
 
 use PHPUnit\Framework\TestCase;
 
-class __Package__Test extends TestCase
+final class __Package__Test extends TestCase
 {
     protected __Package__ $__PackageVarName__;
 
