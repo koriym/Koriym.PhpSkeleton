@@ -97,7 +97,6 @@ final class Installer
         // run tools
         shell_exec(dirname(__DIR__) . '/vendor/bin/phpcbf');
         shell_exec(dirname(__DIR__) . '/vendor/bin/composer dump-autoload --quiet');
-        shell_exec(dirname(__DIR__) . '/vendor/bin/psalm --init > /dev/null');
         // README
         rename($skeletonRoot . '/README.proj.md', $skeletonRoot . '/README.md');
         rename($skeletonRoot . '/.gitattributes.txt', $skeletonRoot . '/.gitattributes');
