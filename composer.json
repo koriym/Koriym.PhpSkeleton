@@ -11,16 +11,16 @@
         }
     ],
     "require": {
-        "php": "^8.0"
+        "php": "^8.1"
     },
     "require-dev": {
         "bamarni/composer-bin-plugin": "^1.8",
-        "composer/composer": "^2.0",
-        "phpunit/phpunit": "^9.5"
+        "composer/composer": "^2.8",
+        "phpunit/phpunit": "^10.5"
     },
     "autoload": {
         "psr-4": {
-            "Koriym\\PhpSkeleton\\": "src"
+            "Koriym\\PhpSkeleton\\": "src/"
         }
     },
     "autoload-dev": {
@@ -37,15 +37,15 @@
         "pre-update-cmd": "Koriym\\PhpSkeleton\\Installer::preInstall",
         "post-create-project-cmd": "Koriym\\PhpSkeleton\\Installer::postInstall",
         "setup": "php bin/setup.php",
-        "test": "./vendor/bin/phpunit",
-        "coverage": "php -dzend_extension=xdebug.so -dxdebug.mode=coverage ./vendor/bin/phpunit --coverage-text --coverage-html=build/coverage",
-        "phpdbg": "phpdbg -qrr ./vendor/bin/phpunit --coverage-text --coverage-html ./build/coverage --coverage-clover=build/coverage.xml",
-        "pcov": "php -dextension=pcov.so -d pcov.enabled=1 ./vendor/bin/phpunit --coverage-text --coverage-html=build/coverage --coverage-clover=build/coverage.xml",
-        "cs": "./vendor/bin/phpcs",
-        "cs-fix": "./vendor/bin/phpcbf src tests",
-        "metrics": "./vendor/bin/phpmetrics --report-html=build/metrics --exclude=Exception src",
-        "clean": ["./vendor/bin/phpstan clear-result-cache", "./vendor/bin/psalm --clear-cache"],
-        "sa": ["./vendor/bin/phpstan analyse -c phpstan.neon", "./vendor/bin/psalm --show-info=true"],
+        "test": "phpunit",
+        "coverage": "php -dzend_extension=xdebug.so -dxdebug.mode=coverage phpunit --coverage-text --coverage-html=build/coverage",
+        "phpdbg": "phpdbg -qrr phpunit --coverage-text --coverage-html ./build/coverage --coverage-clover=build/coverage.xml",
+        "pcov": "php -dextension=pcov.so -d pcov.enabled=1 phpunit --coverage-text --coverage-html=build/coverage --coverage-clover=build/coverage.xml",
+        "cs": "phpcs",
+        "cs-fix": "phpcbf src tests",
+        "metrics": "phpmetrics --report-html=build/metrics --exclude=Exception src",
+        "clean": ["phpstan clear-result-cache", "psalm --clear-cache"],
+        "sa": ["phpstan analyse -c phpstan.neon", "psalm --show-info=true"],
         "tests": ["@cs", "@sa", "@test"],
         "build": ["@clean", "@cs", "@sa", "@pcov", "@metrics"]
     },
@@ -65,6 +65,12 @@
     "config": {
         "allow-plugins": {
             "bamarni/composer-bin-plugin": true
+        }
+    },
+    "extra": {
+        "bamarni-bin": {
+            "bin-links": true,
+            "forward-command": true
         }
     }
 }
