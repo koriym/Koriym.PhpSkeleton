@@ -2,7 +2,10 @@
 
 ## Installation
 
-    composer install
+```bash
+composer install
+```
+composer install
 
 ## Available Commands
 
