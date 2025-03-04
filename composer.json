@@ -45,7 +45,7 @@
         "cs-fix": "phpcbf src tests",
         "phpstan": "phpstan analyse -c phpstan.neon",
         "psalm": "psalm --show-info=false",
-        "phpmd": "composer-require-checker check ./composer.json",
+        "phpmd": "phpmd text ./phpmd.xml",
         "baseline": "phpstan analyse -c phpstan.neon --generate-baseline --allow-empty-baseline && psalm --set-baseline=psalm-baseline.xml",
         "req": "composer-require-checker check ./composer.json",
         "metrics": "phpmetrics --report-html=build/metrics --exclude=Exception src",
