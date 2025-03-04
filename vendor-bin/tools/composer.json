@@ -1,7 +1,8 @@
 {
     "require-dev": {
         "doctrine/coding-standard": "^13.0.x-dev || ^13.0",
-        "phpmd/phpmd": "^2.15",
+        "phpmd/phpmd": "^3.0 || 3.x-dev",
+        "pdepend/pdepend": "^3.0 || 3.x-dev",
         "phpmetrics/phpmetrics": "3.0.0@rc || ^3.0",
         "phpstan/phpstan": "^2.1",
         "psalm/plugin-phpunit": "^0.19",
@@ -12,12 +13,6 @@
         "allow-plugins": {
             "composer/package-versions-deprecated": true,
             "dealerdirect/phpcodesniffer-composer-installer": true
-        }
-    },
-    "extra": {
-        "bamarni-bin": {
-            "bin-links": true,
-            "forward-command": true
         }
     }
 }

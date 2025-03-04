@@ -12,12 +12,33 @@ It will automatically install the following dependencies:
 * [PHPStan](https://phpmd.org): discover bugs in your code without running it.
 * [Psalm](https://psalm.dev): - another static analysis tool from Vimeo.
 * [PHPMetrics](https://www.phpmetrics.org) provides various metrics.
+* [ComposerRequireChecker](https://github.com/maglnet/ComposerRequireChecker) Check composer dependencies.
 
-As well as config file for popular continuous integration tool.
- 
+## Project Structure
+
+After installation, your project will have the following structure:
+
+```
+your-project/
+├── src/                 # Source code
+├── tests/               # Test files
+│   └── Fake/            # Test doubles
+├── vendor/              # Dependencies
+├── vendor-bin/          # Development tool dependencies
+├── build/               # Build artifacts (coverage reports, etc.)
+├── composer.json        # Project configuration
+├── phpcs.xml            # PHP_CodeSniffer configuration
+├── phpmd.xml            # PHPMD configuration
+├── phpstan.neon         # PHPStan configuration
+├── phpunit.xml.dist     # PHPUnit configuration
+├── psalm.xml            # Psalm configuration
+├── composer-require-checker.json  # Composer dependencies checker configuration
+└── README.md            # Project documentation
+```
+
 ## Create Project
-   
-To create your project, enter the following command in your console.    
+
+To create your project, enter the following command in your console:
 
 ```
 composer create-project koriym/php-skeleton <project-path>
@@ -27,49 +48,54 @@ You will be asked a few questions to configure the project:
 
 ```
 What is the vendor name ?
-
 (MyVendor):Koriym
 
 What is the package name ?
-
 (MyPackage):AwesomePackage
 
 What is your name ?
-
 (Akihito Koriyama):
 
 What is your email address ?
-
 (akihito.koriyama@gmail.com):
 ```
 
 ## Composer Commands
 
-Once installed, the project will automatically be configured, so you can run those commands in the root of your application:
+Once installed, the project will automatically be configured, so you can run these commands in the root of your application:
 
 ### test
 
-`composer test` run [`phpunit`](https://github.com/sebastianbergmann/phpunit).
+`composer test` runs [`phpunit`](https://github.com/sebastianbergmann/phpunit).
 
 ### tests
 
-`composer tests` run `cs`, `sa`, and `test`.
+`composer tests` runs `cs`, `sa`, and `test`.
 
 ### coverage, phpdbg, pcov
 
-`composer coverage` builds test coverage report.  `coverage` use [XDebug](https://xdebug.org/), `phpdbg` use [phpdbg](https://www.php.net/manual/en/book.phpdbg.php). `pcov` use [pcov](https://github.com/krakjoe/pcov).
+`composer coverage` builds a test coverage report using [XDebug](https://xdebug.org/).
+`composer phpdbg` builds a test coverage report using [phpdbg](https://www.php.net/manual/en/book.phpdbg.php).
+`composer pcov` builds a test coverage report using [pcov](https://github.com/krakjoe/pcov).
+
 ### cs, cs-fix
 
-`composer cs` checks coding standard. `composer cs-fix` fix up the PHP code.
+`composer cs` checks coding standard.
+`composer cs-fix` fixes the PHP code to match coding standards.
 
 ### sa
 
-`composer sa` run static code analysis tools. (phpstan and psalm)
+`composer sa` runs static code analysis tools (PHPStan and Psalm).
 
 ### metrics
 
-`composer metrics` reports code [metrics](https://www.phpmetrics.org).
+`composer metrics` generates code quality [metrics](https://www.phpmetrics.org).
 
 ### build
 
-`composer build` builds all reports.
+`composer build` builds all reports (code quality, test coverage, require check, metrics).
+
+## Continuous Integration
+
+This project includes several GitHub Actions workflows to ensure code quality and compatibility. These workflows are pre-configured for common PHP project needs, but feel free to modify or remove them to suit your project's requirements.
+
