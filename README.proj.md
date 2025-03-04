@@ -6,7 +6,7 @@
 
 ## Available Commands
 
-```plaintext
+```text
 bin               bamarni/composer-bin-plugin command      
 test              Run unit tests                           
 coverage          Generate test coverage report 
