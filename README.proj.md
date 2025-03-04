@@ -13,7 +13,7 @@ coverage          Generate test coverage report
 cs                Check the coding style                   
 cs-fix            Fix the coding style                     
 baseline          Generate baseline for PHPStan and Psalm  
-req               Run composer require checker            
+crc               Run composer require checker            
 metrics           Build metrics report                     
 clean             Remove temporary files                   
 sa                Run static analysis
