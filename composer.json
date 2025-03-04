@@ -52,7 +52,7 @@
         "clean": ["phpstan clear-result-cache", "psalm --clear-cache"],
         "sa": ["@phpstan", "@psalm"],
         "tests": ["@cs", "@sa", "@test"],
-        "build": ["@clean","@cs", "@sa", "@pcov", "@crc", "@metrics"]
+        "build": ["@clean","@cs", "@sa", "@coverage", "@crc", "@metrics"]
     },
     "scripts-descriptions": {
         "bin": "bamarni/composer-bin-plugin command",
