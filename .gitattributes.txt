@@ -12,6 +12,7 @@
 /phpstan.neon     export-ignore
 /phpunit.xml.dist export-ignore
 /psalm.xml        export-ignore
+/composer-require-checker.json  export-ignore
 
 # Configure diff output for .php and .phar files.
 *.php diff=php
