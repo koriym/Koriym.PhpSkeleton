@@ -69,7 +69,7 @@
         "sa": "Run static analysis",
         "baseline": "Generate baseline for PHPStan and Psalm",
         "metrics": "Build metrics report",
-        "req": " Run composer require checker",
+        "req": "Run composer require checker",
         "tests": "Run tests and quality checks",
         "build": "Build project"
     },
