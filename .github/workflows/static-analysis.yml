@@ -122,5 +122,4 @@ jobs:
           composer install --no-interaction --no-progress --prefer-dist
 
       - name: Run composer-require-checker with config
-        if: ${{ inputs.has_crc_config }}
         run: composer-require-checker check ./composer.json --config-file=./composer-require-checker.json
