@@ -125,4 +125,4 @@ jobs:
           composer install --no-interaction --no-progress --prefer-dist
 
       - name: Run composer-require-checker with config
-        run: composer-require-checker check ./composer.json --config-file=./composer-require-checker.json
+        run: ./vendor/bin/composer-require-checker check ./composer.json --config-file=./composer-require-checker.json
