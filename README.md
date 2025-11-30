@@ -87,13 +87,17 @@ Once installed, the project will automatically be configured, so you can run the
 
 `composer sa` runs static code analysis tools (PHPStan and Psalm).
 
+### audit
+
+`composer audit` checks for security vulnerabilities in dependencies.
+
 ### metrics
 
 `composer metrics` generates code quality [metrics](https://www.phpmetrics.org).
 
 ### build
 
-`composer build` builds all reports (code quality, test coverage, require check, metrics).
+`composer build` builds all reports (code quality, test coverage, require check, security audit, metrics).
 
 ## Continuous Integration
 

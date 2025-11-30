@@ -30,13 +30,14 @@ This is Koriym.PhpSkeleton - a PHP project skeleton generator that creates moder
 - `composer psalm` - Run Psalm only
 - `composer phpmd` - Run PHP Mess Detector
 - `composer baseline` - Generate PHPStan and Psalm baselines
+- `composer audit` - Check for security vulnerabilities in dependencies
 - `composer crc` - Check composer.json dependencies are properly declared
 - `composer metrics` - Generate code quality metrics report (outputs to build/metrics)
 - `composer clean` - Clear PHPStan and Psalm caches
 
 ### Full Build
 - `composer tests` - Run cs + sa + test (quick validation)
-- `composer build` - Full build: clean + cs + sa + coverage + crc + metrics
+- `composer build` - Full build: clean + cs + sa + coverage + crc + audit + metrics
 
 ## Code Architecture
 
