@@ -19,7 +19,6 @@ cs-fix            Fix the coding style
 baseline          Generate baseline for PHPStan and Psalm
 audit             Check for security vulnerabilities in dependencies
 crc               Run composer require checker
-metrics           Build metrics report
 clean             Remove temporary files
 sa                Run static analysis
 tests             Run tests and quality checks

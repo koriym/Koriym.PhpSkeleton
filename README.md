@@ -12,7 +12,6 @@ It will automatically install the following dependencies:
 * [PHPStan](https://phpmd.org): discover bugs in your code without running it.
 * [Psalm](https://psalm.dev): - another static analysis tool from Vimeo.
 * [Infection](https://infection.github.io/): mutation testing framework to evaluate test quality.
-* [PHPMetrics](https://www.phpmetrics.org) provides various metrics.
 * [ComposerRequireChecker](https://github.com/maglnet/ComposerRequireChecker) Check composer dependencies.
 
 ## Project Structure
@@ -96,13 +95,9 @@ Once installed, the project will automatically be configured, so you can run the
 
 `composer audit` checks for security vulnerabilities in dependencies.
 
-### metrics
-
-`composer metrics` generates code quality [metrics](https://www.phpmetrics.org).
-
 ### build
 
-`composer build` builds all reports (code quality, test coverage, require check, security audit, metrics).
+`composer build` builds all reports (code quality, test coverage, require check, security audit).
 
 ## Continuous Integration
 

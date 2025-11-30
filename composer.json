@@ -50,11 +50,10 @@
         "baseline": "phpstan analyse -c phpstan.neon --generate-baseline --allow-empty-baseline && psalm --set-baseline=psalm-baseline.xml",
         "crc": "composer-require-checker check ./composer.json",
         "audit": "composer audit",
-        "metrics": "phpmetrics --report-html=build/metrics --exclude=Exception src",
         "clean": ["phpstan clear-result-cache", "psalm --clear-cache"],
         "sa": ["@phpstan", "@psalm"],
         "tests": ["@cs", "@sa", "@test"],
-        "build": ["@clean","@cs", "@sa", "@coverage", "@crc", "@audit", "@metrics"]
+        "build": ["@clean","@cs", "@sa", "@coverage", "@crc", "@audit"]
     },
     "scripts-descriptions": {
         "bin": "bamarni/composer-bin-plugin command",
@@ -72,7 +71,6 @@
         "sa": "Run static analysis",
         "baseline": "Generate baseline for PHPStan and Psalm",
         "audit": "Check for security vulnerabilities in dependencies",
-        "metrics": "Build metrics report",
         "crc": "Run composer require checker",
         "tests": "Run tests and quality checks",
         "build": "Build project"
