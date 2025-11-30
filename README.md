@@ -11,6 +11,7 @@ It will automatically install the following dependencies:
 * [PHPMD](https://phpmd.org): analyze your code to detect sub-optimal or overly complex code.
 * [PHPStan](https://phpmd.org): discover bugs in your code without running it.
 * [Psalm](https://psalm.dev): - another static analysis tool from Vimeo.
+* [Infection](https://infection.github.io/): mutation testing framework to evaluate test quality.
 * [PHPMetrics](https://www.phpmetrics.org) provides various metrics.
 * [ComposerRequireChecker](https://github.com/maglnet/ComposerRequireChecker) Check composer dependencies.
 
@@ -77,6 +78,10 @@ Once installed, the project will automatically be configured, so you can run the
 `composer coverage` builds a test coverage report using [XDebug](https://xdebug.org/).
 `composer phpdbg` builds a test coverage report using [phpdbg](https://www.php.net/manual/en/book.phpdbg.php).
 `composer pcov` builds a test coverage report using [pcov](https://github.com/krakjoe/pcov).
+
+### mt
+
+`composer mt` runs mutation testing using [Infection](https://infection.github.io/).
 
 ### cs, cs-fix
 

@@ -1,6 +1,7 @@
 {
     "require-dev": {
         "doctrine/coding-standard": "^14.0",
+        "infection/infection": "^0.31",
         "phpmd/phpmd": "^3.0",
         "pdepend/pdepend": "^3.0",
         "phpmetrics/phpmetrics": "^3.0",

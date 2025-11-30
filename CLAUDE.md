@@ -21,6 +21,7 @@ This is Koriym.PhpSkeleton - a PHP project skeleton generator that creates moder
 - `composer coverage` - Generate coverage report using XDebug (outputs to build/coverage)
 - `composer phpdbg` - Generate coverage using phpdbg
 - `composer pcov` - Generate coverage using pcov (faster than XDebug)
+- `composer mt` - Run mutation testing with Infection (evaluates test quality)
 
 ### Code Quality
 - `composer cs` - Check coding standards (PSR-12 + Doctrine Coding Standard via phpcs.xml)
