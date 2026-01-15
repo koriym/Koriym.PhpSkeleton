@@ -41,7 +41,7 @@
         "coverage": "php -dzend_extension=xdebug.so -dxdebug.mode=coverage phpunit --coverage-text --coverage-html=build/coverage",
         "phpdbg": "phpdbg -qrr phpunit --coverage-text --coverage-html ./build/coverage --coverage-clover=build/coverage.xml",
         "pcov": "php -dextension=pcov.so -d pcov.enabled=1 phpunit --coverage-text --coverage-html=build/coverage --coverage-clover=build/coverage.xml",
-        "mt": "infection --threads=max --min-msi=80 --min-covered-msi=90",
+        "mutation": "infection --threads=max --min-msi=80 --min-covered-msi=90",
         "cs": "phpcs",
         "cs-fix": "phpcbf src tests",
         "phpstan": "phpstan analyse -c phpstan.neon",
@@ -49,11 +49,10 @@
         "phpmd": "phpmd text ./phpmd.xml",
         "baseline": "phpstan analyse -c phpstan.neon --generate-baseline --allow-empty-baseline && psalm --set-baseline=psalm-baseline.xml",
         "crc": "composer-require-checker check ./composer.json",
-        "audit": "composer audit",
         "clean": ["phpstan clear-result-cache", "psalm --clear-cache"],
         "sa": ["@phpstan", "@psalm"],
         "tests": ["@cs", "@sa", "@test"],
-        "build": ["@clean","@cs", "@sa", "@coverage", "@crc", "@audit"]
+        "build": ["@clean","@cs", "@sa", "@coverage", "@crc"]
     },
     "scripts-descriptions": {
         "bin": "bamarni/composer-bin-plugin command",
@@ -61,7 +60,7 @@
         "coverage": "Generate test coverage report",
         "phpdbg": "Generate test coverage report (phpdbg)",
         "pcov": "Generate test coverage report (pcov)",
-        "mt": "Run mutation testing",
+        "mutation": "Run mutation testing",
         "cs": "Check the coding style",
         "cs-fix": "Fix the coding style",
         "phpmd": "Analyze PHP code for potential issues",
@@ -70,7 +69,6 @@
         "phpstan": "Analyze code for errors using PHPStan",
         "sa": "Run static analysis",
         "baseline": "Generate baseline for PHPStan and Psalm",
-        "audit": "Check for security vulnerabilities in dependencies",
         "crc": "Run composer require checker",
         "tests": "Run tests and quality checks",
         "build": "Build project"

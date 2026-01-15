@@ -78,9 +78,9 @@ Once installed, the project will automatically be configured, so you can run the
 `composer phpdbg` builds a test coverage report using [phpdbg](https://www.php.net/manual/en/book.phpdbg.php).
 `composer pcov` builds a test coverage report using [pcov](https://github.com/krakjoe/pcov).
 
-### mt
+### mutation
 
-`composer mt` runs mutation testing using [Infection](https://infection.github.io/).
+`composer mutation` runs mutation testing using [Infection](https://infection.github.io/).
 
 ### cs, cs-fix
 
@@ -91,13 +91,9 @@ Once installed, the project will automatically be configured, so you can run the
 
 `composer sa` runs static code analysis tools (PHPStan and Psalm).
 
-### audit
-
-`composer audit` checks for security vulnerabilities in dependencies.
-
 ### build
 
-`composer build` builds all reports (code quality, test coverage, require check, security audit).
+`composer build` builds all reports (code quality, test coverage, require check).
 
 ## Continuous Integration
 

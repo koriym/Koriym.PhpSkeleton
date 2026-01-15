@@ -13,11 +13,10 @@ composer install
 bin               bamarni/composer-bin-plugin command
 test              Run unit tests
 coverage          Generate test coverage report
-mt                Run mutation testing
+mutation          Run mutation testing
 cs                Check the coding style
 cs-fix            Fix the coding style
 baseline          Generate baseline for PHPStan and Psalm
-audit             Check for security vulnerabilities in dependencies
 crc               Run composer require checker
 clean             Remove temporary files
 sa                Run static analysis
