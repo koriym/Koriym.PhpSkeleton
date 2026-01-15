@@ -2,8 +2,8 @@
     "require-dev": {
         "doctrine/coding-standard": "^14.0",
         "infection/infection": "^0.31",
-        "phpmd/phpmd": "^3.0",
-        "pdepend/pdepend": "^3.0",
+        "phpmd/phpmd": "^2.15",
+        "pdepend/pdepend": "^2.16",
         "phpstan/phpstan": "^2.1",
         "psalm/plugin-phpunit": "^0.19",
         "squizlabs/php_codesniffer": "^4.0",
