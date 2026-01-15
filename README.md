@@ -11,7 +11,7 @@ It will automatically install the following dependencies:
 * [PHPMD](https://phpmd.org): analyze your code to detect sub-optimal or overly complex code.
 * [PHPStan](https://phpmd.org): discover bugs in your code without running it.
 * [Psalm](https://psalm.dev): - another static analysis tool from Vimeo.
-* [PHPMetrics](https://www.phpmetrics.org) provides various metrics.
+* [Infection](https://infection.github.io/): mutation testing framework to evaluate test quality.
 * [ComposerRequireChecker](https://github.com/maglnet/ComposerRequireChecker) Check composer dependencies.
 
 ## Project Structure
@@ -78,6 +78,10 @@ Once installed, the project will automatically be configured, so you can run the
 `composer phpdbg` builds a test coverage report using [phpdbg](https://www.php.net/manual/en/book.phpdbg.php).
 `composer pcov` builds a test coverage report using [pcov](https://github.com/krakjoe/pcov).
 
+### mt
+
+`composer mt` runs mutation testing using [Infection](https://infection.github.io/).
+
 ### cs, cs-fix
 
 `composer cs` checks coding standard.
@@ -87,15 +91,22 @@ Once installed, the project will automatically be configured, so you can run the
 
 `composer sa` runs static code analysis tools (PHPStan and Psalm).
 
-### metrics
+### audit
 
-`composer metrics` generates code quality [metrics](https://www.phpmetrics.org).
+`composer audit` checks for security vulnerabilities in dependencies.
 
 ### build
 
-`composer build` builds all reports (code quality, test coverage, require check, metrics).
+`composer build` builds all reports (code quality, test coverage, require check, security audit).
 
 ## Continuous Integration
 
-This project includes several GitHub Actions workflows to ensure code quality and compatibility. These workflows are pre-configured for common PHP project needs, but feel free to modify or remove them to suit your project's requirements.
+This project includes several GitHub Actions workflows to ensure code quality and compatibility:
+
+- **Continuous Integration**: Runs tests on PHP 8.1, 8.2, 8.3, and 8.4
+- **Static Analysis**: Runs PHPStan, Psalm, PHPMD, and ComposerRequireChecker
+- **Coding Standards**: Checks code style with PHP_CodeSniffer
+- **Mutation Testing**: Runs Infection to evaluate test quality (on 1.x branch and PRs)
+
+These workflows are pre-configured for common PHP project needs, but feel free to modify or remove them to suit your project's requirements.
 
