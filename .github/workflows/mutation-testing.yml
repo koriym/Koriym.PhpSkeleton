@@ -43,7 +43,7 @@ jobs:
         run: composer install --no-interaction --no-progress --prefer-dist
 
       - name: Run Infection
-        run: composer mt
+        run: composer mutation
         env:
           INFECTION_BADGE_API_KEY: ${{ secrets.INFECTION_BADGE_API_KEY }}
 
