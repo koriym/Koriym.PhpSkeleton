@@ -19,7 +19,9 @@ use function date;
 use function dirname;
 use function file_get_contents;
 use function file_put_contents;
+use function getenv;
 use function is_callable;
+use function is_string;
 use function is_writable;
 use function lcfirst;
 use function passthru;
@@ -51,10 +53,9 @@ final class Installer
 
     public static function preInstall(Event $event): void
     {
-        $pacakageNameValidator = self::getValidator();
         $io = $event->getIO();
-        $vendorClass = self::ask($io, 'What is the vendor name?', 'MyVendor', $pacakageNameValidator);
-        $packageClass = self::ask($io, 'What is the package name?', 'MyPackage', $pacakageNameValidator);
+        $vendorClass = self::getVendorName($io);
+        $packageClass = self::getPackageName($io);
         self::$userName = self::ask($io, 'What is your name?', self::getUserName());
         self::$userEmail = self::ask($io, 'What is your email address ?', self::getUserEmail());
         self::$packageName = sprintf('%s/%s', self::camel2dashed($vendorClass), self::camel2dashed($packageClass));
@@ -63,6 +64,30 @@ final class Installer
         self::$appName = [$vendorClass, $packageClass];
         // Update composer definition
         $json->write($composerDefinition);
+    }
+
+    private static function getVendorName(IOInterface $io): string
+    {
+        $envVendor = getenv('VENDOR');
+        if (is_string($envVendor) && $envVendor !== '') {
+            $validator = self::getValidator();
+
+            return $validator($envVendor);
+        }
+
+        return self::ask($io, 'What is the vendor name?', 'MyVendor', self::getValidator());
+    }
+
+    private static function getPackageName(IOInterface $io): string
+    {
+        $envPackage = getenv('PACKAGE');
+        if (is_string($envPackage) && $envPackage !== '') {
+            $validator = self::getValidator();
+
+            return $validator($envPackage);
+        }
+
+        return self::ask($io, 'What is the package name?', 'MyPackage', self::getValidator());
     }
 
     private static function getValidator(): callable

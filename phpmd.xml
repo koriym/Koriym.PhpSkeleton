@@ -8,34 +8,52 @@
     <!-- Clean Code Rules -->
     <rule ref="rulesets/cleancode.xml/BooleanArgumentFlag"/>
     <rule ref="rulesets/cleancode.xml/ElseExpression"/>
+    <rule ref="rulesets/cleancode.xml/IfStatementAssignment"/>
+    <rule ref="rulesets/cleancode.xml/DuplicatedArrayKey"/>
+    <rule ref="rulesets/cleancode.xml/ErrorControlOperator"/>
     <!-- <rule ref="rulesets/cleancode.xml/StaticAccess"/> -->
-    <!-- <rule ref="rulesets/cleancode.xml/IfStatementAssignment"/> -->
-    <!-- <rule ref="rulesets/cleancode.xml/DuplicatedArrayKey"/> -->
-    <!-- <rule ref="rulesets/cleancode.xml/MissingImport"/> -->
-    <!-- <rule ref="rulesets/cleancode.xml/UndefinedVariable"/> -->
-    <!-- <rule ref="rulesets/cleancode.xml/ErrorControlOperator"/> -->
+    <!-- <rule ref="rulesets/cleancode.xml/MissingImport"/> --> <!-- Covered by PHPCS -->
+    <!-- <rule ref="rulesets/cleancode.xml/UndefinedVariable"/> --> <!-- Covered by PHPStan/Psalm -->
 
     <!-- Code Size Rules -->
     <rule ref="rulesets/codesize.xml/CyclomaticComplexity">
         <properties>
+            <!-- Cyclomatic complexity threshold (default=10)
+                 Recommended values: strict=10, normal=20, easy=30 -->
             <property name="reportLevel" value="20"/>
         </properties>
     </rule>
     <rule ref="rulesets/codesize.xml/NPathComplexity">
         <properties>
+            <!-- NPath complexity threshold (default=200)
+                 Recommended values: strict=100, normal=200, easy=300 -->
             <property name="minimum" value="200"/>
         </properties>
     </rule>
+    <!-- Maximum lines per method (default=100)
+         Recommended values: strict=50, normal=100, easy=150 -->
     <rule ref="rulesets/codesize.xml/ExcessiveMethodLength"/>
+    <!-- Maximum lines per class (default=1000)
+         Recommended values: strict=500, normal=1000, easy=1500 -->
     <rule ref="rulesets/codesize.xml/ExcessiveClassLength"/>
+    <!-- Maximum parameters per method (default=10)
+         Recommended values: strict=5, normal=10, easy=15 -->
     <rule ref="rulesets/codesize.xml/ExcessiveParameterList"/>
+    <!-- Maximum public methods per class (default=45)
+         Recommended values: strict=30, normal=45, easy=60 -->
     <rule ref="rulesets/codesize.xml/ExcessivePublicCount"/>
+    <!-- Maximum fields per class (default=15)
+         Recommended values: strict=10, normal=15, easy=20 -->
     <rule ref="rulesets/codesize.xml/TooManyFields"/>
+    <!-- Maximum methods per class (default=25, ignores get/set methods)
+         Recommended values: strict=15, normal=25, easy=40 -->
     <rule ref="rulesets/codesize.xml/TooManyMethods"/>
-    <rule ref="rulesets/codesize.xml/TooManyPublicMethods"/>
+    <!-- <rule ref="rulesets/codesize.xml/TooManyPublicMethods"/> --> <!-- default=10, ignores get/set -->
     <rule ref="rulesets/codesize.xml/ExcessiveClassComplexity">
         <properties>
-            <property name="maximum" value="100"/>
+            <!-- Weighted Method Count (WMC) threshold (default=50)
+                 Recommended values: strict=30, normal=50, easy=80 -->
+            <property name="maximum" value="80"/>
         </properties>
     </rule>
 
@@ -43,35 +61,50 @@
     <rule ref="rulesets/controversial.xml/CamelCaseClassName"/>
     <rule ref="rulesets/controversial.xml/CamelCasePropertyName"/>
     <rule ref="rulesets/controversial.xml/CamelCaseMethodName"/>
-    <!-- <rule ref="rulesets/controversial.xml/CamelCaseParameterName"/> -->
-    <!-- <rule ref="rulesets/controversial.xml/CamelCaseVariableName"/> -->
-    <!-- <rule ref="rulesets/controversial.xml/Superglobals"/> -->
+    <rule ref="rulesets/controversial.xml/Superglobals"/>
+    <!-- <rule ref="rulesets/controversial.xml/CamelCaseParameterName"/> --> <!-- Covered by PHPCS -->
+    <!-- <rule ref="rulesets/controversial.xml/CamelCaseVariableName"/> --> <!-- Covered by PHPCS -->
 
     <!-- Design Rules -->
     <rule ref="rulesets/design.xml/EvalExpression"/>
     <rule ref="rulesets/design.xml/ExitExpression"/>
     <rule ref="rulesets/design.xml/GotoStatement"/>
+    <!-- Maximum number of child classes (default=15)
+         Recommended values: strict=10, normal=15, easy=20 -->
     <rule ref="rulesets/design.xml/NumberOfChildren"/>
+    <!-- Maximum depth of inheritance tree (default=6)
+         Recommended values: strict=4, normal=6, easy=8 -->
     <rule ref="rulesets/design.xml/DepthOfInheritance"/>
-    <!-- <rule ref="rulesets/design.xml/CouplingBetweenObjects"/> -->
-    <!-- <rule ref="rulesets/design.xml/DevelopmentCodeFragment"/> -->
-    <!-- <rule ref="rulesets/design.xml/EmptyCatchBlock"/> -->
-    <!-- <rule ref="rulesets/design.xml/CountInLoopExpression"/> -->
+    <rule ref="rulesets/design.xml/CouplingBetweenObjects">
+        <properties>
+            <!-- Counts dependencies via properties, parameters, exceptions (default=13)
+                 Recommended values: strict=13, normal=15, easy=25 -->
+            <property name="maximum" value="15"/>
+        </properties>
+    </rule>
+    <rule ref="rulesets/design.xml/DevelopmentCodeFragment"/>
+    <rule ref="rulesets/design.xml/EmptyCatchBlock"/>
+    <rule ref="rulesets/design.xml/CountInLoopExpression"/>
 
     <!-- Naming Rules -->
     <rule ref="rulesets/naming.xml/ConstantNamingConventions"/>
     <rule ref="rulesets/naming.xml/BooleanGetMethodName"/>
-    <!-- <rule ref="rulesets/naming.xml/LongClassName"/> -->
-    <!-- <rule ref="rulesets/naming.xml/ShortClassName"/> -->
+    <!-- Maximum characters in class name (default=40)
+         Recommended values: strict=30, normal=40, easy=50 -->
+    <rule ref="rulesets/naming.xml/LongClassName"/>
+    <!-- Maximum characters in variable name (default=20)
+         Recommended values: strict=15, normal=20, easy=30 -->
+    <rule ref="rulesets/naming.xml/LongVariable"/>
+    <rule ref="rulesets/naming.xml/ConstructorWithNameAsEnclosingClass"/>
+    <!-- Minimum characters in variable name (default=3)
+         Recommended values: strict=3, normal=3, easy=2 -->
     <rule ref="rulesets/naming.xml/ShortVariable">
         <properties>
-            <!-- Allow common loop counters and short variables -->
             <property name="exceptions" value="i,j,k,id,to,db,io" />
         </properties>
     </rule>
-    <!-- <rule ref="rulesets/naming.xml/LongVariable"/> -->
-    <!-- <rule ref="rulesets/naming.xml/ShortMethodName"/> -->
-    <!-- <rule ref="rulesets/naming.xml/ConstructorWithNameAsEnclosingClass"/> -->
+    <!-- <rule ref="rulesets/naming.xml/ShortClassName"/> --> <!-- default minimum=3 -->
+    <!-- <rule ref="rulesets/naming.xml/ShortMethodName"/> --> <!-- default minimum=3 -->
 
     <!-- Unused Code Rules -->
     <rule ref="rulesets/unusedcode.xml/UnusedPrivateField"/>
