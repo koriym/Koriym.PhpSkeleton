@@ -7,7 +7,7 @@ This repository contains a single-line command that will automatically setup for
 It will automatically install the following dependencies:
 
 * [PHPUnit](https://phpunit.readthedocs.io/ja/latest/): provides testing framework.
-* [PHP_CodeSniffer](https://github.com/squizlabs/PHP_CodeSniffer/wiki): detects violations of a defined set of coding standards.
+* [PHP_CodeSniffer](https://github.com/PHPCSStandards/PHP_CodeSniffer/wiki): detects violations of a defined set of coding standards.
 * [PHPMD](https://phpmd.org): analyze your code to detect sub-optimal or overly complex code.
 * [PHPStan](https://phpmd.org): discover bugs in your code without running it.
 * [Psalm](https://psalm.dev): - another static analysis tool from Vimeo.
