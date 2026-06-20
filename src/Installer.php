@@ -70,7 +70,9 @@ final class Installer
     {
         $envVendor = getenv('VENDOR');
         if (is_string($envVendor) && $envVendor !== '') {
-            return ucfirst($envVendor);
+            $validator = self::getValidator();
+
+            return $validator($envVendor);
         }
 
         return self::ask($io, 'What is the vendor name?', 'MyVendor', self::getValidator());
@@ -80,7 +82,9 @@ final class Installer
     {
         $envPackage = getenv('PACKAGE');
         if (is_string($envPackage) && $envPackage !== '') {
-            return ucfirst($envPackage);
+            $validator = self::getValidator();
+
+            return $validator($envPackage);
         }
 
         return self::ask($io, 'What is the package name?', 'MyPackage', self::getValidator());
