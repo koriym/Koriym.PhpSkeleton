@@ -60,6 +60,12 @@ What is your email address ?
 (akihito.koriyama@gmail.com):
 ```
 
+You can also skip the prompts by setting environment variables:
+
+```
+VENDOR=MyVendor PACKAGE=MyPackage composer create-project koriym/php-skeleton <project-path>
+```
+
 ## Composer Commands
 
 Once installed, the project will automatically be configured, so you can run these commands in the root of your application:
