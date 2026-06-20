@@ -105,7 +105,7 @@ Once installed, the project will automatically be configured, so you can run the
 
 This project includes several GitHub Actions workflows to ensure code quality and compatibility:
 
-- **Continuous Integration**: Runs tests on PHP 8.1, 8.2, 8.3, and 8.4
+- **Continuous Integration**: Runs tests on PHP 8.2, 8.3, 8.4 and 8.5
 - **Static Analysis**: Runs PHPStan, Psalm, PHPMD, and ComposerRequireChecker
 - **Coding Standards**: Checks code style with PHP_CodeSniffer
 - **Mutation Testing**: Runs Infection to evaluate test quality (on 1.x branch and PRs)
