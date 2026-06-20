@@ -8,7 +8,8 @@ on:
   workflow_dispatch:
     inputs:
       php_version:
-        default: '8.4'
+        default: '8.5'
+        description: 'PHP version to use'
 
 jobs:
   static-analysis-phpstan:
